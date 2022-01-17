@@ -1,0 +1,125 @@
+<div>
+
+    <x-boton-crear href="{{route('inscripcion.create')}}"/> 
+    
+    <x-input-buscar placeholder="{{$placeholder='Ingrese un nombre o DNI para buscar un alumno'}}"/>  
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Nº</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Nac.</th>
+            <th scope="col">DNI</th>
+            <th scope="col">CUIL</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Nacimiento</th>
+            <th scope="col">Lugar</th>
+            <th scope="col">Domicilio</th>
+            <th scope="col">Dirección</th>
+            <th scope="col" class="collapse" id="Options">Discapacidad</th>
+            <th scope="col" class="collapse" id="Options">Tipo Disc.</th>
+            <th scope="col" class="collapse" id="Options">AUH</th>
+            <th scope="col" class="collapse" id="Options">Obra Social</th>
+            <th scope="col" class="collapse" id="Options">Estado</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+            @forelse ($alumnos as $alumno)         
+            @if ($alumno->baja!==null)
+                <tr class="text-danger">
+             @else
+                <tr>  
+            @endif      
+                <td>
+                    {{$alumno->legajo}}
+                </td>
+
+                <td>
+                    <a href="{{route('inscripcion.show',$alumno->id)}}">
+                    {{$alumno->apellidos}}
+                    </a>
+                </td>
+
+                <td>
+                    <a href="{{route('inscripcion.show',$alumno->id)}}">
+                    {{$alumno->nombres}}
+                     </a>
+                </td>
+
+                <td>
+                    {{$alumno->nacionalidad}}
+                </td>
+
+                <td>
+                    {{$alumno->dni}}
+                </td>
+
+                <td>
+                    {{$alumno->cuil}}
+                </td>
+
+                <td>
+                    {{$alumno->sexo}}
+                </td>
+
+                <td>
+                    {{$newDate = date("d-m-Y", strtotime($alumno->fnacimiento))}}
+                </td>
+
+                <td>
+                    {{$alumno->lnacimiento}}
+                </td>
+
+                <td>
+                    {{$alumno->domicilio->nombre}}
+                </td>
+
+                <td>
+                    {{$alumno->direccion}}
+                </td>
+
+                
+                <td class="collapse" id="Options">
+                    {{$alumno->discapacidad}} 
+                </td>
+
+                
+                <td class="collapse" id="Options">
+                    {{$alumno->tipo_discapacidad}}
+                </td>
+
+
+                <td class="collapse" id="Options">
+                    {{$alumno->auh}} 
+                </td>
+
+                <td class="collapse" id="Options">
+                    {{$alumno->obrasocial}} 
+                </td>
+
+                <td class="collapse" id="Options">
+                    {{$alumno->baja}} 
+                </td>
+            
+                <x-opcion-editar href="{{route('inscripcion.index')}}"/>
+
+            </tr>
+
+                
+                @empty
+                    <p class=" text-danger">No se encontraron resultados en su busqueda</p>
+            @endforelse 
+        </tbody>
+      </table>
+</div>
+        <div class="container">
+            {{$alumnos->links()}}
+        </div>
+</div>
