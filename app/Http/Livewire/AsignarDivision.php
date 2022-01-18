@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Ciclo;
 use App\Models\Curso;
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\CursoDivision;
 use Illuminate\Support\Facades\Cache;
 use App\Models\AsignarDivision as ModelsAsignarDivision;
@@ -18,6 +19,17 @@ class AsignarDivision extends Component
     public $divisiones;
     public $division;
 
+        //usando la paginacion de bootstrap
+        use WithPagination;
+        protected $paginationTheme = 'bootstrap';
+    
+    
+    
+        public function updatingSearch()
+        {   //
+            $this->resetPage();
+        }
+        
 
     public function mount(){
         //Buscando datos
@@ -48,7 +60,7 @@ class AsignarDivision extends Component
         //Buscando el curso_id para mostrar las opciones de curso a asignar el la vista
         $this->divisiones=CursoDivision::all()->where('curso_id',$this->search);
         //Buscando todos los inscriptos que no tienen asignado una seccion (grupo_id null)
-        $asignaciones=ModelsAsignarDivision::all()->where('ciclo_id',$ciclo->id)->where('curso_id',$this->search)->where('grupo_id',null);
+        $asignaciones=ModelsAsignarDivision::where('ciclo_id',$ciclo->id)->where('curso_id',$this->search)->where('grupo_id',null)->Paginate(10);
         
         }else{
             //Sino, se devuelve un array vacio

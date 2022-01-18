@@ -29,8 +29,8 @@ class DatabaseSeeder extends Seeder
         $this->call(EspacioSeeder::class);
         $this->call(OcupacionSeeder::class);
         $this->call(ParentezcoSeeder::class);
-        Alumno::factory(100)->create();
-        Tutor::factory(100)->create();
-        Inscripcion::factory(50)->create();
+        Alumno::factory(9000)->create();
+        Tutor::factory(9000)->create();
+        Inscripcion::factory(5000)->create();
     }
 }

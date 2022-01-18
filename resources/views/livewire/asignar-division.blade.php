@@ -67,5 +67,8 @@
           </table>
        
     </div>
-           
+        
+    <div class="container">
+        {{$asignaciones->links()}}
+    </div>
 </div>

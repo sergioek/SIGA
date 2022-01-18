@@ -22,7 +22,7 @@
     </div>
     
     
-    <div style="padding-top: 220px;padding-left:40px; ">
+    <div style="padding-top: 320px;padding-left:40px; ">
         <footer>
             
             <p><strong>Para comunicarnos:</strong>esctecnica12@gmail.com - <strong>Facebook:</strong><a href="https://www.facebook.com/Escuela-T%C3%A9cnica-12-514835225358580">Escuela Técnica 12</a></p>

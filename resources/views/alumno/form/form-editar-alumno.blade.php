@@ -16,7 +16,7 @@
 
         <div class="form-group">
           <label for="">Apellidos</label>
-          <input type="text" class="form-control" id=""placeholder="Apellidos en mayúsculas" required name="apellidos" value="{{$alumno->apellidos}}" pattern="[A-Z-Ñ ]{1,50}">
+          <input type="text" class="form-control" id=""placeholder="Apellidos en mayúsculas" required name="apellidos" value="{{$alumno->apellidos}}" pattern="[A-Z-Ñ-´-Ü ]{1,50}">
           @error('apellidos')
             <br>
                 <small class="text-danger">*{{$message}}</small>

@@ -177,7 +177,7 @@ th, td {
             @endforelse 
 
             <tr>
-                <td colspan="8" style="height: 40px; text-align:center;padding-top:10px;">
+                <td colspan="8" style="height: 20px; text-align:center;padding-top:10px;">
                     <strong>PROMEDIO GENERAL: </strong>
                     {{round($promedio/$materias,2)}}
                 </td>
@@ -186,11 +186,11 @@ th, td {
     </table>
 </div>
 
-<div style="float: left; padding:40px;">
+<div style="float: left; padding:30px;">
     <strong>Sello</strong><strong>_____________</strong>  
 </div>
 
-<div style="float: right; padding:40px;">
+<div style="float: right; padding:30px;">
     <strong>Firma</strong><strong>_____________</strong>      
 </div>
 

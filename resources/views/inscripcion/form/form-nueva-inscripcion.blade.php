@@ -18,7 +18,7 @@
 
         <div class="form-group">
           <label for="">Apellidos</label>
-          <input type="text" class="form-control" id=""placeholder="Apellidos en mayúsculas" required name="apellidos" pattern="[A-Z-Ñ ]{1,50}" >
+          <input type="text" class="form-control" id=""placeholder="Apellidos en mayúsculas" required name="apellidos" pattern="[A-Z-Ñ-´-Ü ]{1,50}" >
           @error('apellidos')
             <br>
                 <small class="text-danger">*{{$message}}</small>
@@ -232,7 +232,7 @@
 
           <div class="form-group">
             <label for="">Apellidos</label>
-            <input type="text" class="form-control" id=""placeholder="Apellidos del tutor en mayúscula" required name="apellido" pattern="[A-Z-Ñ ]{1,50}">
+            <input type="text" class="form-control" id=""placeholder="Apellidos del tutor en mayúscula" required name="apellido" pattern="[A-Z-Ñ-´-Ü ]{1,50}">
             @error('apellido')
               <br>
                   <small class="text-danger">*{{$message}}</small>
