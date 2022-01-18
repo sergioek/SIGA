@@ -11,9 +11,7 @@
         <div class="form-group">
             <label for="">Ciclo</label>
             <select name="ciclo_id" id="" class="form-control" required>
-                @foreach ($ciclos as $ciclo)
-                     <option value="{{$ciclo->id}}">{{$ciclo->ciclo}}</option>
-                @endforeach
+                     <option value="{{$ciclos->id}}">{{$ciclos->ciclo}}</option>
             </select>
             @error('ciclo_id')
                   <small class="text-danger">*{{$message}}</small>

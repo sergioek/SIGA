@@ -27,7 +27,7 @@ class CicloLectivo
         Cache::put('ciclo_activo',$ciclo,14400); 
     }
 
-        if ($ciclo->isEmpty()) {
+        if (empty($ciclo)) {
            return redirect()->route('ciclo.create')->with('Info','Debe inagurar un ciclo lectivo para realizar una inscripción.');
         } else {
              

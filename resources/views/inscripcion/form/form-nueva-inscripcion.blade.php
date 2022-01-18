@@ -324,19 +324,16 @@
         <h4 class="text-success">Inscripción:</h4>
 
         <div class="form-group">
-            <label for="">Ciclo</label>
-            <select name="ciclo_id" id="" class="form-control">
-                @foreach ($ciclo as $ciclo)
-                    <option  value="{{$ciclo->id}}">{{$ciclo->ciclo}}</option>
-                @endforeach
-                
-            </select>
-            @error('ciclo_id')
-              ciclo_id
-                  <small class="text-danger">*{{$message}}</small>
-              <br>
-            @enderror
-          </div>
+          <label for="">Ciclo</label>
+          <select name="ciclo_id" id="" class="form-control">
+          <option  value="{{$ciclo->id}}">{{$ciclo->ciclo}}</option>
+          </select>
+          @error('ciclo_id')
+            ciclo_id
+                <small class="text-danger">*{{$message}}</small>
+            <br>
+          @enderror
+        </div>
 
 
           

@@ -67,8 +67,12 @@
           </table>
        
     </div>
-        
-    <div class="container">
-        {{$asignaciones->links()}}
-    </div>
+
+    <!--------Si existe alumnos cargados, se muestra la paginacion-------->
+    @if (!empty($asignacion))
+        <div class="container">
+            {{$asignaciones->links()}}
+        </div> 
+    @endif
+   
 </div>

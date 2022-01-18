@@ -65,6 +65,7 @@ class AsignarDivision extends Component
         }else{
             //Sino, se devuelve un array vacio
           $asignaciones=[];
+          
         }
        
         //retornando la vista
