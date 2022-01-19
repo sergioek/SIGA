@@ -40,7 +40,7 @@ class CarreraController extends Controller
     {
         //Validaciones para guardar una carrera
         $request->validate([
-            'nombre'=>'required|string|max:100',
+            'nombre'=>'required|string|max:100|unique:carreras',
             'resolucion'=>'required|string|max:100',
             'años'=>'required|integer|max:10',
             'titulo'=>'required|string|max:100',
@@ -101,7 +101,7 @@ class CarreraController extends Controller
     {
         //Validaciones para actualizar la carrera
         $request->validate([
-            'nombre'=>'required|string|max:100',
+            'nombre'=>'required|string|max:100|unique:carreras,nombre,'. $carrera->id,
             'resolucion'=>'required|string|max:100',
             'años'=>'required|integer|max:10',
             'titulo'=>'required|string|max:100',
@@ -129,8 +129,10 @@ class CarreraController extends Controller
     public function destroy(Carrera $carrera)
     {
         try {
+
             //Intenta borrar la carrera
             $carrera->delete();
+            
             //muestra un mensaje del proceso
             return redirect()->route('carrera.index')->with('MsjExito','Se elimino una carrera exitosamente');
 

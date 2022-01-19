@@ -236,13 +236,10 @@ return [
 
         // Sidebar items:
      
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
+  
       
         ['header' => 'account_settings'],
+
         [
             'text' => 'Mi Perfil',
             'url'  => 'user/profile',
@@ -257,6 +254,13 @@ return [
             'icon' => 'fas fa-school',
             'url'        => '#',
             'submenu'=>[
+
+                [
+                    'text'=>'Estadística',
+                    'url'=>'/dashboard',
+                    'icon'=>'fas fa-square-root-alt',
+                ],
+
                 [
                 'text'=>'Datos Institucionales',
                 'route'=>'establecimiento.index',

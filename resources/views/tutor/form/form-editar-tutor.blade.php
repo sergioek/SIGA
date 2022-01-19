@@ -4,7 +4,7 @@
         @csrf
         <div class="form-group">
           <label for="">Apellidos</label>
-          <input type="text" class="form-control" id=""placeholder="Apellidos en mayúsculas" required name="apellido" value="{{$tutor->apellido}}" pattern="[A-Z-Ñ-´-Ü ]{1,50}">
+          <input type="text" class="form-control" id=""placeholder="Apellidos en mayúsculas" required name="apellido" value="{{$tutor->apellido}}" pattern="[A-Z-Ñ-Á-É-Ó-Í-Ü ]{1,50}">
           @error('apellido')
             <br>
                 <small class="text-danger">*{{$message}}</small>

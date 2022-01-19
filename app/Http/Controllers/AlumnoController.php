@@ -67,6 +67,7 @@ class AlumnoController extends Controller
             'obrasocial'=>'required|string|max:2',
         ]);
 
+        
         //Guardar un nuevo alumno
         $alumno=Alumno::create($request->all());
 

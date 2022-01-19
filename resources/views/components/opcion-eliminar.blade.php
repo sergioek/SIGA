@@ -3,7 +3,7 @@
         <form action="{{$href}}" method="post">
             @method('delete')
             @csrf
-            <a href="">
+            <a>
             <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
             </a>
         </form>

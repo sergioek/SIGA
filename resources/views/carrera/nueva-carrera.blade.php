@@ -8,7 +8,6 @@
 
 @section('content')
     <p>Crear Carreras.</p>
-    <x-mensajes/>
     @include('carrera.forms.form-nueva-carrera')
 @stop
     

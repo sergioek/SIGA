@@ -8,7 +8,6 @@
 
 @section('content')
     <p>Editar Carrera.</p>
-    <x-mensajes/>
     @include('carrera.forms.form-editar-carrera')
 @stop
     

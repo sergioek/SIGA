@@ -60,7 +60,7 @@
           <div class="form-group">
             <label for="">Carerra</label>
             <select id="" name="carrera_id" class="form-control">
-                <option value="{$espacio->carrera->id}}" selected>{{$espacio->carrera->nombre}}</option>
+                <option value="{{$espacio->carrera->id}}" selected>{{$espacio->carrera->nombre}}</option>
                 @foreach ($carreras as $carrera)
                      <option value="{{$carrera->id}}">{{$carrera->nombre}}</option>
                 @endforeach

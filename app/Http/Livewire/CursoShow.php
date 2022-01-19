@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\CursoDivision;
+use Illuminate\Support\Facades\DB;
 
 class CursoShow extends Component
 {   //Usando la paginacion bootstrap
@@ -19,7 +20,8 @@ class CursoShow extends Component
     }
     public function render()
     {   //Retornando los cursos_divisions
-        $cursos=CursoDivision::where('curso_id','like','%'.$this->search.'%')->Paginate(10);
+       $cursos=CursoDivision::where('curso_id','like','%'.$this->search.'%')->Paginate(10);
+       
         //retorna a la vista
         return view('livewire.curso-show',compact('cursos'));
     }

@@ -51,7 +51,7 @@ class EspacioController extends Controller
         ]);
 
         //Crea los espacios 
-        $espacio=Espacio::create([$request->all()]);
+        $espacio=Espacio::create($request->all());
         //retorna a  la vista
         return redirect()->route('espacio.index')->with('MsjExito','Se creo un nuevo espacio');
     }
@@ -107,7 +107,7 @@ class EspacioController extends Controller
         ]);
 
         //Realiza el update
-        $espacio->update([$request->all()]);
+        $espacio->update($request->all());
         //retorna  a la vista 
         return redirect()->route('espacio.index')->with('MsjExito','Se actualizó un espacio');
     }
