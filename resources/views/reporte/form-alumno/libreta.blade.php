@@ -223,16 +223,16 @@
             <h3>SUPERIOR GOBIERNO DE LA PROVINCIA DE SANTIAGO DEL ESTERO</h3>
             <h4>SUBSECRETARÍA DE EDUCACIÓN Y CULTURA</h4>
             <h5>CONSEJO GENERAL DE EDUCACIÓN</h5>
-            <h6>DIRECCIÓN GENERAL DE NIVEL SECUNDARIO</h6>
+            <h6 style="text-transform:uppercase;">DIRECCIÓN GENERAL DE NIVEL {{$establecimiento->nivel}}</h6>
     
             <img src="http://server2.meducacionsantiago.gob.ar/consultas/logo_santiago.jpg" alt="" style="width:50px;">
     
-            <h3>ESCUELA TÉCNICA Nº12</h3>
+            <h3 style="text-transform:uppercase;">{{$establecimiento->nombre}}</h3>
             <div class="institucionales">
                 <p class="categoria"><strong>Categoría:</strong> 1ra.</p>
                 <p class="categoria"><strong>Grupo:</strong> A</p>
                 <p class="categoria"><strong>Modalidad:</strong> J. Simple</p>
-                <p class="categoria"><strong>CUE:</strong> 8602249-00</p>
+                <p class="categoria"><strong>CUE:</strong> {{$establecimiento->cue}}</p>
             </div>
     
             <h4>LIBRETA DE CLASIFICACIONES</h4>
@@ -252,7 +252,7 @@
     page-break-before:always;"></div>
     
     <div >
-        <h3 class="encabezado1" >Escuela Técnica Nº12</h3>
+        <h3 class="encabezado1" >{{$establecimiento->nombre}}</h3>
         <strong class="encabezado2">{{"Año " . $inscripcion->ciclo->ciclo.":" . '"'.$inscripcion->ciclo->lema . '"'}}</strong>
     </div>
     

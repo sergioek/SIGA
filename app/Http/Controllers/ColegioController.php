@@ -83,6 +83,7 @@ class ColegioController extends Controller
     public function update(Request $request, Colegio $establecimiento)
     {   //Validaciones para actualizar datos del establecimiento
         $request->validate([
+            'nivel'=>'required|string|max:100',
             'nombre'=>'required|string|max:100',
             'cue'=>'required|string|max:100',
             'direccion'=>'required|string|max:100',
@@ -94,16 +95,9 @@ class ColegioController extends Controller
         ]);
 
         //Actualizando ....
-        $establecimiento->update([
-            'nombre'=>$request->nombre,
-            'cue'=>$request->cue,
-            'direccion'=>$request->direccion,
-            'telefono'=>$request->telefono,
-            'correo'=>$request->correo,
-            'rector'=>$request->rector,
-            'vicerrector'=>$request->vicerrector,
-            'ciudad_id'=>$request->ciudad_id,
-        ]);
+        $establecimiento->update($request->all());
+        //Elimina cache
+        Cache::forget('establecimiento');
 
         //Retorna a la vista
         return redirect()->route('establecimiento.index')->with('MsjExito','Se actualizaron los datos del establecimiento correctamente.');

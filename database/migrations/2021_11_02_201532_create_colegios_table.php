@@ -15,7 +15,7 @@ class CreateColegiosTable extends Migration
     {
         Schema::create('colegios', function (Blueprint $table) {
             $table->id();
-            $table->enum('nivel',['PRIMARIO','SECUNDARIO','SUPERIOR']);
+            $table->enum('nivel',['Primario','Secundario','Superior']);
             $table->string('nombre');
             $table->string('direccion');
             $table->string('cue')->nullable();

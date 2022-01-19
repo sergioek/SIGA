@@ -1,5 +1,10 @@
-
-<x-membrete-a4 ciclo="{{$ciclo->ciclo}}" lema="{{$ciclo->lema}}"/>
+<style>
+       @page {
+          margin-left: 1cm;
+          margin-right: 1cm; 
+        }
+</style>
+<x-membrete-a4 ciclo="{{$ciclo->ciclo}}" lema="{{$ciclo->lema}}" nombre="{{$establecimiento->nombre}}" cue="{{$establecimiento->cue}}" nivel="{{$establecimiento->nivel}}" direccion="{{$establecimiento->direccion}}"/>
 
     <h3 style="text-align: center">CONSTANCIA DE CERTIFICADOS DE ESTUDIOS EN TRÁMITE</h3>
     
@@ -25,7 +30,9 @@
     <div style="padding-top: 220px;padding-left:40px; ">
         <footer>
             
-            <p><strong>Para comunicarnos:</strong>esctecnica12@gmail.com - <strong>Facebook:</strong><a href="https://www.facebook.com/Escuela-T%C3%A9cnica-12-514835225358580">Escuela Técnica 12</a></p>
+            <p><strong>Para comunicarnos:</strong>{{$establecimiento->correo}} - <strong>Teléfono:</strong>
+                {{$establecimiento->telefono}}
+            </p>
         </footer>
     </div>
     

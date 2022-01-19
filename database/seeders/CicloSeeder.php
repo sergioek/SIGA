@@ -68,7 +68,7 @@ class CicloSeeder extends Seeder
             'cierre'=>'2021-12-23
             ',
             'colegio_id'=>1,
-            'estado'=>'INACTIVO',
+            'estado'=>'ACTIVO',
         ]);
     }
 }

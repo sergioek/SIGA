@@ -1,10 +1,16 @@
 
-<x-membrete-a4 ciclo="{{$ciclo->ciclo}}" lema="{{$ciclo->lema}}"/>
+<x-membrete-a4 ciclo="{{$ciclo->ciclo}}" lema="{{$ciclo->lema}}" nombre="{{$establecimiento->nombre}}" cue="{{$establecimiento->cue}}" nivel="{{$establecimiento->nivel}}" direccion="{{$establecimiento->direccion}}"/>
 
 <h2 style="text-align: center">CONSTANCIA DE ANALÍTICO PARCIAL</h2>
 
 
 <style>
+
+    @page {
+          margin-left: 1cm;
+          margin-right: 1cm; 
+        }
+        
     .table{
         margin-top: 20px;
     width: 100%;

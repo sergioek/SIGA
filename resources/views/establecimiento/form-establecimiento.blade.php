@@ -2,6 +2,22 @@
     <form method="POST" action="{{route('establecimiento.update',$establecimiento)}}" enctype="multipart/form-data">
         @method('PUT')
         @csrf
+
+        <div class="form-group">
+          <label for="">Nivel</label>
+          <select name="nivel" id="" class="form-control">
+            <option value="{{$establecimiento->nivel}}" selected>{{$establecimiento->nivel}}</option>
+            <option value="Primario">Primario</option>
+            <option value="Secundario">Secundario</option>
+            <option value="Superior">Superior</option>
+          </select>
+          @error('nivel')
+            <br>
+                <small class="text-danger">*{{$message}}</small>
+            <br>
+          @enderror
+        </div>
+
         <div class="form-group">
           <label for="">Nombre</label>
           <input type="text" class="form-control" id=""placeholder="Nombre del establecimiento" required name="nombre" value="{{$establecimiento->nombre}}">

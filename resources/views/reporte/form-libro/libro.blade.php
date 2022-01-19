@@ -1,7 +1,7 @@
     <style>
 
         @page {
-            margin-top: 1cm;
+            margin-top: 0cm;
 		    margin-left: 2cm;
 		    margin-right: 0.5cm;
 	    }
@@ -43,7 +43,8 @@
     </style>
     
     
-<x-membrete-b4 ciclo="{{$ciclo->ciclo}}" lema="{{$ciclo->lema}}"/>
+<x-membrete-b4 ciclo="{{$ciclo->ciclo}}" lema="{{$ciclo->lema}}" nombre="{{$establecimiento->nombre}}" cue="{{$establecimiento->cue}}" nivel="{{$establecimiento->nivel}}" direccion="{{$establecimiento->direccion}}"/>
+    
 <div style="text-align:center;">
     <strong >{{'"' .$curso->carrera->nombre . '"'}} </strong>   
 </div>
@@ -183,7 +184,7 @@
 
 
 <!-------alumno2----->
-
+<div style="padding-top: 40px;">
 @if (!empty($alumno2))
 <table class="table">
     <tbody>
@@ -330,7 +331,7 @@
 
 <footer>
 
-    <div style="text-align: right; padding-right:40px; padding-top:13cm;">
+    <div style="text-align: right; margin-right:40px; margin-top:540px;">
         <p style="font-weight: bold;">{{'Pág.'.$folio}}</p >
     </div>
     
@@ -338,5 +339,5 @@
 
 @endif
 
-
+</div>
 

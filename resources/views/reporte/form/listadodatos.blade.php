@@ -47,7 +47,7 @@ th, td {
 
 </style>
 
-<x-membrete ciclo="{{$ciclo->ciclo}}" lema="{{$ciclo->lema}}"/>
+<x-membrete ciclo="{{$ciclo->ciclo}}" lema="{{$ciclo->lema}}" nombre="{{$establecimiento->nombre}}" cue="{{$establecimiento->cue}}" nivel="{{$establecimiento->nivel}}" direccion="{{$establecimiento->direccion}}"/>
 
 
 <div>

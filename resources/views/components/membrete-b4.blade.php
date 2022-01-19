@@ -12,9 +12,9 @@
                 <td style="border:1px solid white; padding: 1px;
                 text-align: center;">
                   <p class="consejo" style="font-size:12px;">{{'Año'. ' '. $ciclo.' "'.$lema. '"'}}</p>
-                  <h3 class="escuela">Escuela Técnica Nº12 - CUE 8602249-00</h3>
-                  <p class="consejo" style="font-size: 14px;">Consejo General de Educación * Dirección General de Nivel Secundario</p>
-                  <p class="direccion" style="font-size: 10px;font-weight:bold;">Calle José Cheein - Ciudad de Fernández  -  Dpto. Robles - Provincia de Santiago del Estero</p>
+                  <h3 class="escuela">{{$nombre}} - CUE {{$cue}}</h3>
+                  <p class="consejo" style="font-size: 14px;">Consejo General de Educación * Dirección General de Nivel {{$nivel}}</p>
+                  <p class="direccion" style="font-size: 12px;font-weight:bold;">{{$direccion}}</p>
                 </td>
 
                 <td style="border:1px solid white; padding: 1px;

@@ -50,7 +50,7 @@ table{
 
 </style>
 
-<x-membrete ciclo="{{$ciclo->ciclo}}" lema="{{$ciclo->lema}}"/>
+<x-membrete ciclo="{{$ciclo->ciclo}}" lema="{{$ciclo->lema}}" nombre="{{$establecimiento->nombre}}" cue="{{$establecimiento->cue}}" nivel="{{$establecimiento->nivel}}" direccion="{{$establecimiento->direccion}}"/>
 
 <div>
     <h1 class="titulo">PLANILLA DE EVALUACIÓN</h1>

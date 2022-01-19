@@ -15,9 +15,9 @@ class ColegioSeeder extends Seeder
     public function run()
     {
         Colegio::create([
-            'nivel'=>'SECUNDARIO',
+            'nivel'=>'Secundario',
             'nombre'=>'Escuela Técnica Nº12',
-            'direccion'=>'Calle José Cheein y Libertad',
+            'direccion'=>'Calle José Cheein - Ciudad de Fernández - Provincia de Santiago del Estero',
             'cue'=>'8602249-00',
             'correo'=>'esctecnica12@gmail.com',
             'telefono'=>'3855881707',

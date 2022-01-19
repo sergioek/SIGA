@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use App\Models\CursoDivision;
 use App\Models\AsignarDivision;
 use App\Models\Clasificaciones;
+use App\Models\Colegio;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 
@@ -48,6 +49,14 @@ class ReporteController extends Controller
         $ciclo=Ciclo::find($request->ciclo);
         $curso=CursoDivision::find($request->curso);
 
+        //Buscando datos del establecimiento
+        if (Cache::has('establecimiento')) {
+            $establecimiento=Cache::get('establecimiento');
+        } else {
+            $establecimiento=Colegio::find(1);
+            Cache::put('establecimiento',$establecimiento,14400);
+        }
+        
         //Generando listado de datos de alumnos
         if($request->reporte==1){
             $alumnos =DB::table('inscripcions')
@@ -55,7 +64,7 @@ class ReporteController extends Controller
            ->orderBy('alumnos.apellidos', 'ASC')->where('asignar_divisions.ciclo_id',$request->ciclo)->where('grupo_id',$request->curso)->get();
     
           //Generando PDF
-           $pdf= PDF::loadView('reporte.form.listadodatos',compact('alumnos','ciclo','curso'))->setPaper('A3', 'landscape')->setWarnings(false)->save('myfile.pdf');
+           $pdf= PDF::loadView('reporte.form.listadodatos',compact('alumnos','ciclo','curso','establecimiento'))->setPaper('A3', 'landscape')->setWarnings(false)->save('myfile.pdf');
            return $pdf->download('listado.pdf');
           
         }
@@ -89,7 +98,7 @@ class ReporteController extends Controller
             }
 
             //Descargando la planilla en PDF
-           $pdf= PDF::loadView('reporte.form.planilla',compact('alumnos','ciclo','curso'))->setPaper('B4', 'landscape')->setWarnings(false)->save('myfile.pdf');
+           $pdf= PDF::loadView('reporte.form.planilla',compact('alumnos','ciclo','curso','establecimiento'))->setPaper('B4', 'landscape')->setWarnings(false)->save('myfile.pdf');
            return $pdf->download('planilla.pdf');
 
         }
@@ -106,7 +115,16 @@ class ReporteController extends Controller
     public function const(Request $request){
         //Determinando la fecha actual, para ponerla en los reportes / constncias 
         $fecha = Carbon::now()->locale('es')->isoFormat('dddd D \d\e MMMM \d\e\l Y');
-      
+
+        
+        //Buscando datos del establecimiento
+        if (Cache::has('establecimiento')) {
+            $establecimiento=Cache::get('establecimiento');
+        } else {
+            $establecimiento=Colegio::find(1);
+            Cache::put('establecimiento',$establecimiento,14400);
+        }
+        
         try {
             //Buscando el alumno por dni
             $alumno=Alumno::where('dni',$request->dni)->first();
@@ -131,7 +149,7 @@ class ReporteController extends Controller
 
             //Imprime una constancia de alumno regular
             if($request->reporte==1){
-                $pdf= PDF::loadView('reporte.form-alumno.alumno-regular',compact('ciclo','curso','alumno','fecha'))->setPaper('A4', 'portrait')->setWarnings(false)->save('myfile.pdf');
+                $pdf= PDF::loadView('reporte.form-alumno.alumno-regular',compact('ciclo','curso','alumno','fecha','establecimiento'))->setPaper('A4', 'portrait')->setWarnings(false)->save('myfile.pdf');
                 return $pdf->download('constanciaalumnoregular.pdf');
             }
 
@@ -139,7 +157,7 @@ class ReporteController extends Controller
             if($request->reporte==2){
 
                 if($curso->division->curso->curso=='6º'){
-                    $pdf= PDF::loadView('reporte.form-alumno.titulo-tramite',compact('ciclo','curso','alumno','fecha'))->setPaper('A4', 'portrait')->setWarnings(false)->save('myfile.pdf');
+                    $pdf= PDF::loadView('reporte.form-alumno.titulo-tramite',compact('ciclo','curso','alumno','fecha','establecimiento'))->setPaper('A4', 'portrait')->setWarnings(false)->save('myfile.pdf');
                      return $pdf->download('titulo-tramite.pdf');
                 }else{
                     return redirect()->route('reporte.alumno')->with('MsjFalla','No se puede emitir constancia porque el alumno no cursó 6º año.');
@@ -149,7 +167,7 @@ class ReporteController extends Controller
 
             //Constancia de pase
             if($request->reporte==3){
-                $pdf= PDF::loadView('reporte.form-alumno.constancia-pase',compact('ciclo','curso','alumno','fecha'))->setPaper('A4', 'portrait')->setWarnings(false)->save('myfile.pdf');
+                $pdf= PDF::loadView('reporte.form-alumno.constancia-pase',compact('ciclo','curso','alumno','fecha','establecimiento'))->setPaper('A4', 'portrait')->setWarnings(false)->save('myfile.pdf');
                 return $pdf->download('constancia-pase.pdf');
             }
 
@@ -162,7 +180,7 @@ class ReporteController extends Controller
 
                 $promedio=Clasificaciones::all()->where('alumno_id',$alumno->id)->sum('cal_def');
 
-                $pdf= PDF::loadView('reporte.form-alumno.analitico-parcial',compact('ciclo','curso','alumno','fecha','calificaciones','promedio','materias'))->setPaper('A4', 'portrait')->setWarnings(false)->save('myfile.pdf');
+                $pdf= PDF::loadView('reporte.form-alumno.analitico-parcial',compact('ciclo','curso','alumno','fecha','calificaciones','promedio','materias','establecimiento'))->setPaper('A4', 'portrait')->setWarnings(false)->save('myfile.pdf');
                 return $pdf->download('analitico-parcial.pdf');
             }
 
@@ -171,7 +189,7 @@ class ReporteController extends Controller
 
                 $espacios=Espacio::all()->where('curso_id',$curso->division->curso->id );
 
-                $pdf= PDF::loadView('reporte.form-alumno.libreta',compact('ciclo','curso','alumno','fecha','inscripcion','espacios'))->setPaper('A4', 'landscape')->setWarnings(false)->save('myfile.pdf');
+                $pdf= PDF::loadView('reporte.form-alumno.libreta',compact('ciclo','curso','alumno','fecha','inscripcion','espacios','establecimiento'))->setPaper('A4', 'landscape')->setWarnings(false)->save('myfile.pdf');
                 return $pdf->download('libreta.pdf');
             }          
 
@@ -209,6 +227,15 @@ class ReporteController extends Controller
         //Buscando el ciclo y division 
         $ciclo=Ciclo::find($request->ciclo);
         $curso=CursoDivision::find($request->curso);
+
+        //Buscando datos del establecimiento
+        if (Cache::has('establecimiento')) {
+            $establecimiento=Cache::get('establecimiento');
+        } else {
+            $establecimiento=Colegio::find(1);
+            Cache::put('establecimiento',$establecimiento,14400);
+        }
+        
         //Definiendo variables, para evitar errores sino se define el alumno 2 ..
         $folio=$request->folio;
         $alumno2="";
@@ -249,7 +276,7 @@ class ReporteController extends Controller
 
             }
             //Generando el pdf
-            $pdf= PDF::loadView('reporte.form-libro.libro',compact('ciclo','curso','alumno','matricula','calificaciones','observaciones','promedio','materias','alumno2','matricula2','calificaciones2','observaciones2','promedio2','folio'))->setPaper('B4', 'portrait')->setWarnings(false)->save('myfile.pdf');
+            $pdf= PDF::loadView('reporte.form-libro.libro',compact('establecimiento','ciclo','curso','alumno','matricula','calificaciones','observaciones','promedio','materias','alumno2','matricula2','calificaciones2','observaciones2','promedio2','folio'))->setPaper('B4', 'portrait')->setWarnings(false)->save('myfile.pdf');
 
             return $pdf->download('librocalificaciones.pdf');
 
