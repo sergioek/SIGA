@@ -5,8 +5,7 @@
     
     <div class="col-lg-4 mt-3">
         <label for="">Ciclo Lectivo</label>
-        <select name="" wire:model.debounce.500ms="filtro" id="" class="form-control col-lg-4">
-          
+        <select name="" wire:model.debounce.500ms="filtro" id="" class="form-control col-lg-4"> 
             @foreach ($ciclos as $ciclo)
                 <option value="{{$ciclo->id}}">{{$ciclo->ciclo}}</option>
             @endforeach

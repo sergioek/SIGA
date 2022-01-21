@@ -16,7 +16,6 @@ class InscripcionShow extends Component
     protected $paginationTheme = 'bootstrap';
     //definiendo las propiedades
     public $search;
-    public $ciclos;
     public $filtro;
 
     public function updatingSearch()
@@ -40,11 +39,15 @@ class InscripcionShow extends Component
     }
 
     public function render()
-    {   //buscando el alumno por dni
+    {   
+     
+
+        //buscando el alumno por dni
         $alumno=Alumno::where('dni',$this->search);
         //Buscando las inscripciones por numero de inscripcion
         $inscriptos=Inscripcion::where('id','like','%'.$this->search.'%')->where('ciclo_id',$this->filtro)->orderBy('curso_id','ASC')->Paginate(10);
 
+       
         //retorna a la vista
         return view('livewire.inscripcion-show',compact('inscriptos',$this->ciclos));
     }

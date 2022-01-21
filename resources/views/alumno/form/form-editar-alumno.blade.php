@@ -16,7 +16,7 @@
 
         <div class="form-group">
           <label for="">Apellidos</label>
-          <input type="text" class="form-control" id=""placeholder="Apellidos en mayúsculas" required name="apellidos" value="{{$alumno->apellidos}}" pattern="[A-Z-Ñ-Á-É-Ó-Í-Ü ]{1,50}">
+          <input type="text" class="form-control" id=""placeholder="Apellidos en mayúsculas" required name="apellidos" value="{{$alumno->apellidos}}" pattern="[A-Z-Ñ-Á-É-Ó-Í-Ú-Ü-Ö ]{1,50}">
           @error('apellidos')
             <br>
                 <small class="text-danger">*{{$message}}</small>
@@ -59,7 +59,7 @@
             <input type="number" class="form-control" id=""placeholder="DNI" required name="dni" value="{{$alumno->dni}}">
             @error('dni')
               <br>
-                  <small class="text-danger">*{{'El DNI debe contener 8 digitos, sin puntos ni espacios.'}}</small>
+                  <small class="text-danger">*{{'El DNI debe ser un valor único en su base de datos. Su longuitud debe ser de 8 digitos, sin puntos ni espacios.'}}</small>
               <br>
             @enderror
           </div>
@@ -69,7 +69,7 @@
             <input type="text" class="form-control" id=""placeholder="CUIL Ej:20-12859744-4" required name="cuil" value="{{$alumno->cuil}}">
             @error('cuil')
               <br>
-                  <small class="text-danger">*{{'El CUIL debe contener 13 digitos.'}}</small>
+                  <small class="text-danger">*{{'El CUIL debe ser un valor único en su base de datos. Debe contener 13 digitos.'}}</small>
               <br>
             @enderror
           </div>
