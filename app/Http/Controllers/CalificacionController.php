@@ -86,7 +86,7 @@ class CalificacionController extends Controller
         if(!empty($alumno)){
         
         //Busca las calificaciones de ese alumno
-        $calificaciones=Clasificaciones::where('alumno_id',$alumno->id)->Paginate(12); 
+        $calificaciones=Clasificaciones::where('alumno_id',$alumno->id)->Paginate(1); 
         
         //retorna la vista de calificaciones de alumn regular 
          return view('calificacion.calificacion-edit',compact('calificaciones','alumno'));

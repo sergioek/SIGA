@@ -36,7 +36,7 @@
 
 
                             <td>
-                                <input type="number"  id="" class="form-control" step="0.25" max="10" name="cal_def" value="{{$calificacion->cal_def}}">
+                                <input type="number"  id="" class="form-control" step="0.25" max="10" min="1" name="cal_def" value="{{$calificacion->cal_def}}">
                                 @error('cal_def')
                                 <br>
                                     <small class="text-danger">*{{$message}}</small>

@@ -8,6 +8,7 @@
 
 @section('content')
     <p>Ver y cargar las calificaciones del alumno.</p>
+    <p class="text-danger">Sistema de ponderación automático. Se computa el 40% de la nota del 1er cuatrimestre y un 60% del segundo.</p>
     <a href="{{route('calificaciones.index')}}">
         <button class="btn btn-secondary offset-lg-10" title="Volver atrás"><i class="fas fa-undo-alt"></i> Volver</button>
     </a>
@@ -28,4 +29,5 @@
 
 @section('js')
     <script> console.log('Hi!'); </script>
+    <script type="text/javascript" src="{{ URL::asset('js/calificaciones.js') }}"></script>
 @stop
