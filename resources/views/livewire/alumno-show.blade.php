@@ -19,7 +19,7 @@
     <table class="table table-hover">
         <thead class="table-dark">
           <tr>
-            <th scope="col">Nº</th>
+            <th scope="col">Legajo</th>
             <th scope="col">Apellidos</th>
             <th scope="col">Nombres</th>
             <th scope="col">Nac.</th>

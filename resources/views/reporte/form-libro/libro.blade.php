@@ -331,7 +331,7 @@
 
 <footer>
 
-    <div style="text-align: right; margin-right:40px; margin-top:540px;">
+    <div style="text-align: right; margin-right:40px; margin-top:500px;">
         <p style="font-weight: bold;">{{'Pág.'.$folio}}</p >
     </div>
     
