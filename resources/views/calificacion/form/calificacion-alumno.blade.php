@@ -38,7 +38,7 @@
                             </td>
 
                             <td>
-                                <input type="number"  id="nota_1" class="form-control" step="0.25" max="10" min="1" name="nota_1" value="{{$calificacion->nota_1}}" onchange="ponderacion()">
+                                <input type="number"  id="nota_1" class="form-control" step="0.25" max="10" min="1" name="nota_1" value="{{old('nota_1',$calificacion->nota_1)}}" onchange="ponderacion()">
                                 @error('nota_1')
                                 <br>
                                     <small class="text-danger">*{{$message}}</small>
@@ -47,7 +47,7 @@
                             </td>
 
                             <td>
-                                <input type="number"  id="nota_2" class="form-control" step="0.25" max="10" min="1" name="nota_2" value="{{$calificacion->nota_2}}" onchange="ponderacion()">
+                                <input type="number"  id="nota_2" class="form-control" step="0.25" max="10" min="1" name="nota_2" value="{{old('nota_2',$calificacion->nota_2)}}" onchange="ponderacion()">
                                 @error('nota_2')
                                 <br>
                                     <small class="text-danger">*{{$message}}</small>
@@ -56,7 +56,7 @@
                             </td>
 
                             <td>
-                                <input type="number"  id="nota_fin" class="form-control" step="0.25" max="10" min="1" name="nota_fin" value="{{$calificacion->nota_fin}}" readonly>
+                                <input type="number"  id="nota_fin" class="form-control" step="0.25" max="10" min="1" name="nota_fin" value="{{old('nota_fin',$calificacion->nota_fin)}}" readonly>
                                 @error('nota_fin')
                                 <br>
                                     <small class="text-danger">*{{$message}}</small>
@@ -65,7 +65,7 @@
                             </td>
 
                             <td>
-                                <input type="number"  id="nota_dic" class="form-control" step="0.25" max="10" min="1" name="nota_dic" value="{{$calificacion->nota_dic}}" onchange="diciembre()" readonly>
+                                <input type="number"  id="nota_dic" class="form-control" step="0.25" max="10" min="1" name="nota_dic" value="{{old('nota_dic',$calificacion->nota_dic)}}" onchange="diciembre()" readonly>
                                 @error('nota_dic')
                                 <br>
                                     <small class="text-danger">*{{$message}}</small>
@@ -74,7 +74,7 @@
                             </td>
 
                             <td>
-                                <input type="number"  id="nota_feb" class="form-control" step="0.25" min="1" max="10" name="nota_feb" value="{{$calificacion->nota_feb}}" onchange="febrero()" readonly>
+                                <input type="number"  id="nota_feb" class="form-control" step="0.25" min="1" max="10" name="nota_feb" value="{{old('nota_feb',$calificacion->nota_feb)}}" onchange="febrero()" readonly>
                                 @error('nota_feb')
                                 <br>
                                     <small class="text-danger">*{{$message}}</small>
@@ -83,7 +83,7 @@
                             </td>
 
                             <td>
-                                <input type="number"  id="cal_def" class="form-control" step="0.25" min="1" max="10" name="cal_def" value="{{$calificacion->cal_def}}" readonly>
+                                <input type="number"  id="cal_def" class="form-control" step="0.25" min="1" max="10" name="cal_def" value="{{old('cal_def',$calificacion->cal_def)}}" readonly>
                                 @error('cal_def')
                                 <br>
                                     <small class="text-danger">*{{$message}}</small>
@@ -105,7 +105,7 @@
                             </td>
 
                             <td>
-                                <input type="date" name="fecha" id="" class="form-control" value="{{$calificacion->fecha}}" style="width: 160px;">
+                                <input type="date" name="fecha" id="" class="form-control" value="{{old('fecha',$calificacion->fecha)}}" style="width: 160px;">
                                 @error('fecha')
                                 <br>
                                     <small class="text-danger">*{{$message}}</small>

@@ -32,6 +32,7 @@ class CalificacionesValidate extends FormRequest
             'cal_def'=>'max:10',
             'examen'=>'required',
             'fecha'=>'date',
+            'establecimiento'=>'max:50',
             'observaciones'=>'max:50',
         ];
     }

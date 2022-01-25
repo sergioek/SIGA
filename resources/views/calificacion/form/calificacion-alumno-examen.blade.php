@@ -36,7 +36,7 @@
 
 
                             <td>
-                                <input type="number"  id="" class="form-control" step="0.25" max="10" min="1" name="cal_def" value="{{$calificacion->cal_def}}">
+                                <input type="number"  id="" class="form-control" step="0.25" max="10" min="1" name="cal_def" value="{{old('cal_def',$calificacion->cal_def)}}">
                                 @error('cal_def')
                                 <br>
                                     <small class="text-danger">*{{$message}}</small>
@@ -61,7 +61,7 @@
                             </td>
 
                             <td>
-                                <input type="date" name="fecha" id="" class="form-control" value="{{$calificacion->fecha}}">
+                                <input type="date" name="fecha" id="" class="form-control" value="{{old('fecha',$calificacion->fecha)}}">
                                 @error('fecha')
                                 <br>
                                     <small class="text-danger">*{{$message}}</small>
@@ -69,16 +69,31 @@
                               @enderror
                             </td>
 
-                            <td>
-                                @if (empty($calificacion->establecimiento))
-                                    <input type="text" name="establecimiento" id="" class="form-control" value="ESTE ESTABLEC.">
-                                @else
-                                    <input type="text" name="establecimiento" id="" class="form-control" value="{{$calificacion->establecimiento}}">
-                                @endif
-                            </td>
+                    <td>
+
+                        @if (empty($calificacion->establecimiento))
+                            
+                            <input type="text" name="establecimiento" id="" class="form-control" value="ESTE ESTABLEC.">
+                        @error('establecimiento')
+                        <br>
+                            <small class="text-danger">*{{$message}}</small>
+                        <br>
+                      @enderror
+
+                                    
+                        @else
+                                <input type="text" name="establecimiento" id="" class="form-control" value="{{old('establecimiento',$calificacion->establecimiento)}}">
+                                @error('establecimiento')
+                                <br>
+                                    <small class="text-danger">*{{$message}}</small>
+                                <br>
+                              @enderror
+                        @endif
+                                
+                    </td>
 
                             <td>
-                                <input type="text" name="observaciones" id="" class="form-control" value="{{$calificacion->observaciones}}">
+                                <input type="text" name="observaciones" id="" class="form-control" value="{{old('observaciones',$calificacion->observaciones)}}">
                             </td>
 
 

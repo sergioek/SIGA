@@ -45,9 +45,9 @@
             @forelse ($inscriptos as $inscripto)  
             
             @if ($inscripto->alumno->baja!==null)
-                <tr class="text-danger">
+                <tr class="text-danger" href="#Options" data-toggle="collapse">
             @else
-               <tr> 
+               <tr href="#Options" data-toggle="collapse"> 
             @endif
             
                 <td >

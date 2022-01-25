@@ -21,7 +21,7 @@
     
                 <tbody>
                     @forelse ($ciclos as $ciclo)            
-                    <tr>
+                    <tr href="#Options" data-toggle="collapse">
                         <td>
                             {{$ciclo->ciclo}}
                         </td>

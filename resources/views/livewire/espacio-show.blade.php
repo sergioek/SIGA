@@ -22,7 +22,7 @@
 
             <tbody>
                 @forelse ($espacios as $espacio)            
-                <tr>
+                <tr href="#Options" data-toggle="collapse">
                     <td>
                         {{$espacio->curso->curso}}
                     </td>

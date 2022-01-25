@@ -20,7 +20,7 @@
 
         <div class="form-group">
             <label for="">Nombre del espacio</label>
-            <input type="text" name="nombre" class="form-control" id="" placeholder="Ingrese el nombre del espacio">
+            <input type="text" name="nombre" class="form-control" id="" placeholder="Ingrese el nombre del espacio" value="{{old('nombre')}}">
             @error('nombre')
               <br>
                   <small class="text-danger">*{{$message}}</small>
@@ -31,7 +31,7 @@
 
           <div class="form-group">
             <label for="">Horas cátedras</label>
-            <input type="number" name="horas" min="1" step="1" class="form-control" id="" placeholder="Horas cátedras">
+            <input type="number" name="horas" min="1" step="1" class="form-control" id="" placeholder="Horas cátedras" value="{{old('horas')}}">
             @error('horas')
               <br>
                   <small class="text-danger">*{{$message}}</small>

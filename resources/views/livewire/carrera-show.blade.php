@@ -21,7 +21,7 @@
 
             <tbody>
                 @forelse ($carreras as $carrera)            
-                <tr>
+                <tr href="#Options" data-toggle="collapse">
                     <td>
                         {{$carrera->nombre}}
                     </td>

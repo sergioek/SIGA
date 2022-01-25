@@ -21,7 +21,7 @@
 
             <tbody>
                 @forelse ($cursos as $curso)            
-                <tr>
+                <tr href="#Options" data-toggle="collapse">
                     <td>
                         {{$curso->curso->curso}}
                     </td>

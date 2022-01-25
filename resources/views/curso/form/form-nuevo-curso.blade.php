@@ -47,7 +47,7 @@
 
           <div class="form-group">
             <label for="">Preceptor/a</label>
-            <input type="text" name="preceptor" id="" class="form-control" required>
+            <input type="text" name="preceptor" id="" class="form-control" required value="{{old('preceptor')}}">
             @error('preceptor')
               <br>
                   <small class="text-danger">*{{$message}}</small>

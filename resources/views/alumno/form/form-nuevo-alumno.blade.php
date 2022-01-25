@@ -5,7 +5,7 @@
         <!-----------------alumno----------------------->
         <div class="form-group">
             <label for="">Legajo Nº</label>
-            <input type="number" class="form-control" id=""placeholder="Legajo" required name="legajo" min="1">
+            <input type="number" class="form-control" id=""placeholder="Legajo" required name="legajo" min="1" value="{{old('legajo')}}">
             @error('legajo')
               <br>
                   <small class="text-danger">*{{$message}}</small>
@@ -16,7 +16,7 @@
 
         <div class="form-group">
           <label for="">Apellidos</label>
-          <input type="text" class="form-control" id=""placeholder="Apellidos en mayúsculas" required name="apellidos" pattern="[A-Z-Ñ-Á-É-Ó-Í-Ú-Ü-Ö ]{1,50}">
+          <input type="text" class="form-control" id=""placeholder="Apellidos en mayúsculas" required name="apellidos" pattern="[A-Z-Ñ-Á-É-Ó-Í-Ú-Ü-Ö ]{1,50}" value="{{old('apellidos')}}">
           @error('apellidos')
             <br>
                 <small class="text-danger">*{{$message}}</small>
@@ -26,7 +26,7 @@
 
         <div class="form-group">
             <label for="">Nombres</label>
-            <input type="text" class="form-control" id=""placeholder="Nombres" required name="nombres" >
+            <input type="text" class="form-control" id=""placeholder="Nombres" required name="nombres" value="{{old('nombres')}}" >
             @error('nombres')
               <br>
                   <small class="text-danger">*{{$message}}</small>
@@ -55,7 +55,7 @@
 
           <div class="form-group">
             <label for="">DNI</label>
-            <input type="number" class="form-control" id=""placeholder="DNI" required name="dni">
+            <input type="number" class="form-control" id=""placeholder="DNI" required name="dni" value="{{old('dni')}}">
             @error('dni')
               <br>
                   <small class="text-danger">*{{'El DNI debe ser un valor único en su base de datos. Su longuitud debe ser de 8 digitos, sin puntos ni espacios.'}}</small>
@@ -65,7 +65,7 @@
 
           <div class="form-group">
             <label for="">CUIL</label>
-            <input type="text" class="form-control" id=""placeholder="CUIL Ej:20-12859744-4" required name="cuil">
+            <input type="text" class="form-control" id=""placeholder="CUIL Ej:20-12859744-4" required name="cuil" value="{{old('cuil')}}">
             @error('cuil')
               <br>
                   <small class="text-danger">*{{'El CUIL debe ser un valor único en su base de datos. Debe contener 13 digitos.'}}</small>
@@ -90,7 +90,7 @@
 
           <div class="form-group">
             <label for="">Fecha de Nacimiento</label>
-            <input type="date" class="form-control" id=""placeholder="Fecha de Nacimiento" required name="fnacimiento">
+            <input type="date" class="form-control" id=""placeholder="Fecha de Nacimiento" required name="fnacimiento" value="{{old('fnacimiento')}}">
             @error('fnacimiento')
               <br>
                   <small class="text-danger">*{{$message}}</small>
@@ -100,7 +100,7 @@
 
           <div class="form-group">
             <label for="">Lugar de Nacimiento</label>
-            <input type="text" class="form-control" id=""placeholder="Lugar de Nacimiento" required name="lnacimiento">
+            <input type="text" class="form-control" id=""placeholder="Lugar de Nacimiento" required name="lnacimiento" value="{{old('lnacimiento')}}">
             @error('lnacimiento')
               <br>
                   <small class="text-danger">*{{$message}}</small>
@@ -125,7 +125,7 @@
 
           <div class="form-group">
             <label for="">Dirección</label>
-            <input type="text" class="form-control" id=""placeholder="Dirección" required name="direccion">
+            <input type="text" class="form-control" id=""placeholder="Dirección" required name="direccion" value="{{old('direccion')}}">
             @error('direccion')
               <br>
                   <small class="text-danger">*{{$message}}</small>

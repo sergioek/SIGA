@@ -106,7 +106,6 @@ class CalificacionController extends Controller
      */
     public function update(CalificacionesValidate $request,  $calificacion)
     {
-
       //Busca el registro de calificacion
       $calificacion=Clasificaciones::find($calificacion);
 

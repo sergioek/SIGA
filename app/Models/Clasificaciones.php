@@ -24,6 +24,7 @@ class Clasificaciones extends Model
         'espacio_id',
         'alumno_id',
         'curso_id',
+        'establecimiento',
     ];
 
 

@@ -45,7 +45,7 @@
         <tbody>
             @forelse ($asignaciones as $asignacion) 
                 
-            <tr>
+            <tr href="#Options" data-toggle="collapse">
              
                 <td>
                     {{$asignacion->inscripcion->alumno->apellidos . " " . $asignacion->inscripcion->alumno->nombres}}

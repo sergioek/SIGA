@@ -5,7 +5,7 @@
 
         <div class="form-group">
             <label for="">Legajo Nº</label>
-            <input type="number" class="form-control" id=""placeholder="Legajo" required name="legajo" value="{{$alumno->legajo}}" min="1">
+            <input type="number" class="form-control" id=""placeholder="Legajo" required name="legajo" value="{{old('legajo',$alumno->legajo)}}" min="1">
             @error('legajo')
               <br>
                   <small class="text-danger">*{{$message}}</small>
@@ -16,7 +16,7 @@
 
         <div class="form-group">
           <label for="">Apellidos</label>
-          <input type="text" class="form-control" id=""placeholder="Apellidos en mayúsculas" required name="apellidos" value="{{$alumno->apellidos}}" pattern="[A-Z-Ñ-Á-É-Ó-Í-Ú-Ü-Ö ]{1,50}">
+          <input type="text" class="form-control" id=""placeholder="Apellidos en mayúsculas" required name="apellidos" value="{{old('apellidos',$alumno->apellidos)}}" pattern="[A-Z-Ñ-Á-É-Ó-Í-Ú-Ü-Ö ]{1,50}">
           @error('apellidos')
             <br>
                 <small class="text-danger">*{{$message}}</small>
@@ -26,7 +26,7 @@
 
         <div class="form-group">
             <label for="">Nombres</label>
-            <input type="text" class="form-control" id=""placeholder="Nombres" required name="nombres" value="{{$alumno->nombres}}">
+            <input type="text" class="form-control" id=""placeholder="Nombres" required name="nombres" value="{{old('nombres',$alumno->nombres)}}">
             @error('nombres')
               <br>
                   <small class="text-danger">*{{$message}}</small>
@@ -56,7 +56,7 @@
 
           <div class="form-group">
             <label for="">DNI</label>
-            <input type="number" class="form-control" id=""placeholder="DNI" required name="dni" value="{{$alumno->dni}}">
+            <input type="number" class="form-control" id=""placeholder="DNI" required name="dni" value="{{old('dni',$alumno->dni)}}">
             @error('dni')
               <br>
                   <small class="text-danger">*{{'El DNI debe ser un valor único en su base de datos. Su longuitud debe ser de 8 digitos, sin puntos ni espacios.'}}</small>
@@ -66,7 +66,7 @@
 
           <div class="form-group">
             <label for="">CUIL</label>
-            <input type="text" class="form-control" id=""placeholder="CUIL Ej:20-12859744-4" required name="cuil" value="{{$alumno->cuil}}">
+            <input type="text" class="form-control" id=""placeholder="CUIL Ej:20-12859744-4" required name="cuil" value="{{old('cuil',$alumno->cuil)}}">
             @error('cuil')
               <br>
                   <small class="text-danger">*{{'El CUIL debe ser un valor único en su base de datos. Debe contener 13 digitos.'}}</small>
@@ -92,7 +92,7 @@
 
           <div class="form-group">
             <label for="">Fecha de Nacimiento</label>
-            <input type="date" class="form-control" id=""placeholder="Fecha de Nacimiento" required name="fnacimiento" value="{{$alumno->fnacimiento}}">
+            <input type="date" class="form-control" id=""placeholder="Fecha de Nacimiento" required name="fnacimiento" value="{{old('fnacimiento',$alumno->fnacimiento)}}">
             @error('fnacimiento')
               <br>
                   <small class="text-danger">*{{$message}}</small>
@@ -102,7 +102,7 @@
 
           <div class="form-group">
             <label for="">Lugar de Nacimiento</label>
-            <input type="text" class="form-control" id=""placeholder="Lugar de Nacimiento" required name="lnacimiento" value="{{$alumno->lnacimiento}}">
+            <input type="text" class="form-control" id=""placeholder="Lugar de Nacimiento" required name="lnacimiento" value="{{old('lnacimiento',$alumno->lnacimiento)}}">
             @error('lnacimiento')
               <br>
                   <small class="text-danger">*{{$message}}</small>
@@ -128,7 +128,7 @@
 
           <div class="form-group">
             <label for="">Dirección</label>
-            <input type="text" class="form-control" id=""placeholder="Dirección" required name="direccion" value="{{$alumno->direccion}}">
+            <input type="text" class="form-control" id=""placeholder="Dirección" required name="direccion" value="{{old('direccion',$alumno->direccion)}}">
             @error('direccion')
               <br>
                   <small class="text-danger">*{{$message}}</small>

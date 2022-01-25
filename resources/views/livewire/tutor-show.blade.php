@@ -21,7 +21,7 @@
 
         <tbody>
             @forelse ($tutores as $tutor)            
-            <tr>
+            <tr href="#Options" data-toggle="collapse">
                 <td>
                     {{$tutor->apellido}}
                 </td>
