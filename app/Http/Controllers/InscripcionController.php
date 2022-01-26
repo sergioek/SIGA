@@ -225,7 +225,9 @@ class InscripcionController extends Controller
         try {
             
         if($inscripcionID->ciclo_id==$ciclo->id){
-            
+                //sale del try catch
+            }else{
+                return redirect()->route('inscripcion.index')->with('MsjFalla','No se puede editar una inscripción de un ciclo lectivo cerrado.');
             }
         } catch (Exception $e) {
             return redirect()->route('inscripcion.index')->with('MsjFalla','No se puede editar una inscripción de un ciclo lectivo cerrado.');

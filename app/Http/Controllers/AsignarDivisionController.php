@@ -81,7 +81,9 @@ class AsignarDivisionController extends Controller
         try {
             
             if($asignacion->ciclo_id==$ciclo->id){
-                
+                    //sale del try catch
+                }else{
+                    return redirect()->route('asignardivision.index')->with('MsjFalla','No se puede editar porque pertenece a un ciclo lectivo cerrado.');
                 }
             } catch (Exception $e) {
                 return redirect()->route('asignardivision.index')->with('MsjFalla','No se puede editar porque pertenece a un ciclo lectivo cerrado.');
