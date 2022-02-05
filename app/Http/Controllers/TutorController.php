@@ -47,7 +47,7 @@ class TutorController extends Controller
             'tutorcuil'=>'required|min:13|max:14|unique:tutors',
             'tutordireccion'=>'required|string|max:50',
             'telefono'=>'required',
-            'email'=>'required|email',
+            
     ]);
         //Crea un tutor en la BD
         $tutor=Tutor::create($request->all());
@@ -116,7 +116,7 @@ class TutorController extends Controller
             'tutorcuil'=>'required|min:13|max:14|unique:tutors,tutorcuil,'.$tutor->id,
             'tutordireccion'=>'required|string|max:50',
             'telefono'=>'required',
-            'email'=>'required|email',
+            
     ]);
     //Actualiza el tutor
     $tutor->update($request->all());

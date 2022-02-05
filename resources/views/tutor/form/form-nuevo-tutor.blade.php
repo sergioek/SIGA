@@ -64,7 +64,7 @@
 
           <div class="form-group">
             <label for="">Email</label>
-            <input type="tel" class="form-control" id=""placeholder="Email" required name="email" value="{{old('email')}}">
+            <input type="tel" class="form-control" id=""placeholder="Email"  name="email" value="{{old('email')}}">
             @error('email')
               <br>
                   <small class="text-danger">*{{$message}}</small>

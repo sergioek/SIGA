@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ciclo;
+
 use Illuminate\Http\Request;
 use App\Models\CursoDivision;
 use App\Models\AsignarDivision;
-use Exception;
-use Illuminate\Support\Facades\Cache;
+
 
 class AsignarDivisionController extends Controller
 {
@@ -68,33 +67,18 @@ class AsignarDivisionController extends Controller
     {
        //Busca por id, en la tabla asignar_divisions
         $asignacion=AsignarDivision::find($id);
-
-          //buscando el ciclo activo en cache
-          if (Cache::has('ciclo_activo')) {
-            $ciclo=Cache::get('ciclo_activo');
-        } else { 
-            $ciclo=Ciclo::all()->where('estado','ACTIVO')->last();
-            Cache::put('ciclo_activo',$ciclo,14400); 
-        }
-
-         //Buscamos si la asignacion pertenece a un ciclo activo. Si es true se puede editar, sino retorna un msj
-        try {
-            
-            if($asignacion->ciclo_id==$ciclo->id){
-                    //sale del try catch
-                }else{
-                    return redirect()->route('asignardivision.index')->with('MsjFalla','No se puede editar porque pertenece a un ciclo lectivo cerrado.');
-                }
-            } catch (Exception $e) {
-                return redirect()->route('asignardivision.index')->with('MsjFalla','No se puede editar porque pertenece a un ciclo lectivo cerrado.');
-            }
-
         //Busca el curso que corresponde a ese campo asignar_divisions, para luego ofrecer las opciones de edit para cambiar de curso
         $cursos=CursoDivision::where('curso_id',$asignacion->curso->id)->get();
         
         //si se encontro el campo en asignar_divisions, se retorna a la vista, sino retorna a la pagina anterior
         if(!empty($asignacion)){
-            return view('asignardivisiones.asignar-edit',compact('asignacion','cursos'));
+
+            if($asignacion->ciclo->estado!='ACTIVO'){
+                return redirect()->route('asignardivision.index')->with('MsjFalla','No se puede editar porque pertenece a un ciclo lectivo cerrado.');
+            }else{
+               return view('asignardivisiones.asignar-edit',compact('asignacion','cursos'));  
+            }
+           
         }else{
             return back();
         }

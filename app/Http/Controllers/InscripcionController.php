@@ -11,7 +11,7 @@ use App\Models\Ciudade;
 use App\Models\Ocupacion;
 use App\Models\Parentezco;
 use App\Models\Inscripcion;
-use Exception;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -210,32 +210,19 @@ class InscripcionController extends Controller
     public function edit($id)
     {   
 
-        //buscando el ciclo activo en cache
-        if (Cache::has('ciclo_activo')) {
-            $ciclo=Cache::get('ciclo_activo');
-        } else { 
-            $ciclo=Ciclo::all()->where('estado','ACTIVO')->last();
-            Cache::put('ciclo_activo',$ciclo,14400); 
-        }
-
         //recibiendo la propiedad id para pasarsela al componente livewire. Buscando la inscripcion
         $inscripcionID=Inscripcion::find($id);
         
-        //Buscamos si la inscripcion pertenece a un ciclo activo. Si es true se puede editar, sino retorna un msj
-        try {
-            
-        if($inscripcionID->ciclo_id==$ciclo->id){
-                //sale del try catch
-            }else{
-                return redirect()->route('inscripcion.index')->with('MsjFalla','No se puede editar una inscripción de un ciclo lectivo cerrado.');
-            }
-        } catch (Exception $e) {
-            return redirect()->route('inscripcion.index')->with('MsjFalla','No se puede editar una inscripción de un ciclo lectivo cerrado.');
-        }
-
+     
         //Si la inscripcion existe, se pasan los datos a la vista y de la vista al componente inscripcion-edit
         if(!empty($inscripcionID)){
-            return view('inscripcion.actualizar-inscripcion',compact('inscripcionID'));
+
+            if($inscripcionID->ciclo->estado!='ACTIVO'){
+                return redirect()->route('inscripcion.index')->with('MsjFalla','No se puede editar una inscripción de un ciclo lectivo cerrado.');
+            }else{
+                 return view('inscripcion.actualizar-inscripcion',compact('inscripcionID')); 
+            }
+          
         }else{
             return back();
         }
