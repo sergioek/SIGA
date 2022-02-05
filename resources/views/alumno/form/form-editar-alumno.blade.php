@@ -56,7 +56,7 @@
 
           <div class="form-group">
             <label for="">DNI</label>
-            <input type="number" class="form-control" id=""placeholder="DNI" required name="dni" value="{{old('dni',$alumno->dni)}}">
+            <input type="number" class="form-control" id=""placeholder="DNI" required name="dni" min="0" value="{{old('dni',$alumno->dni)}}">
             @error('dni')
               <br>
                   <small class="text-danger">*{{'El DNI debe ser un valor único en su base de datos. Su longuitud debe ser de 8 digitos, sin puntos ni espacios.'}}</small>
