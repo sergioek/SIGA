@@ -120,20 +120,50 @@
                 {{$calificacion->espacio->nombre}}
             </td>
             <td style="text-align: center;">
-                {{$calificacion->nota_1}}
+                @if (empty($calificacion->nota_1))
+                    {{'A'}} 
+                @else
+                    {{$calificacion->nota_1}} 
+                @endif
             </td>
             <td style="text-align: center;">
-                {{$calificacion->nota_2}}
+                @if (empty($calificacion->nota_2))
+                    {{'A'}} 
+                @else
+                    {{$calificacion->nota_2}} 
+                @endif
             </td>
+
             <td style="text-align: center;">
-                {{$calificacion->nota_fin}}
+                @if (empty($calificacion->nota_fin))
+                    {{'A'}} 
+                @else
+                    {{$calificacion->nota_fin}} 
+                @endif
             </td>
+
             <td style="text-align: center;">
+                @if (empty($calificacion->nota_dic))
+                    @if ($calificacion->nota_2<6 || $calificacion->nota_fin<6)
+                        {{'A'}}  
+                    @endif
+                @else
                     {{$calificacion->nota_dic}} 
+                @endif
+                    
             </td>
+
             <td style="text-align: center;">
-                {{$calificacion->nota_feb}} 
+                @if (empty($calificacion->nota_feb))
+                    @if ($calificacion->nota_dic<6 && empty($calificacion->cal_def))
+                        {{'A'}}  
+                    @endif
+                @else
+                   {{$calificacion->nota_feb}}  
+                @endif
+                
             </td>
+
             <td style="text-align: center;">
                 @if (empty($calificacion->cal_def))
                    {{'A'}} 
