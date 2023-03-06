@@ -161,7 +161,7 @@ th, td {
                 </td>
 
                 <td style="text-align:center;font-size:12px;">
-                    {{$calificacion->fecha}}
+                    {{$newDate = date("d-m-Y", strtotime($calificacion->fecha))}}
                 </td>
 
                 <td style="font-size:12px; text-align:left;">

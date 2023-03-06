@@ -17,9 +17,35 @@
         <h5 class="text-primary">Alumno/a:</h5> <input type="text" class="form-control" disabled name="" id="" value="{{$alumno->apellidos . " " . $alumno->nombres}} ">
     </div>
     
-    
-    <x-mensajes/>
+    <div class="mb-3">
+        <p class="text-bold">Filtros:</p>
+        <a href="{{url('calificaciones/'.$alumno->id.'/edit?page=1')}}">
+		<button class="btn btn-secondary">1º</button>
+        </a>
 
+	 <a href="{{url('calificaciones/'.$alumno->id.'/edit?page=13')}}">
+		<button class="btn btn-secondary">2º</button>
+        </a>
+
+	 <a href="{{url('calificaciones/'.$alumno->id.'/edit?page=26')}}">
+		<button class="btn btn-secondary">3º</button>
+        </a>
+
+	 <a href="{{url('calificaciones/'.$alumno->id.'/edit?page=38')}}">
+		<button class="btn btn-secondary">4º</button>
+        </a>
+
+	 <a href="{{url('calificaciones/'.$alumno->id.'/edit?page=50')}}">
+		<button class="btn btn-secondary">5º</button>
+        </a>
+
+ 	<a href="{{url('calificaciones/'.$alumno->id.'/edit?page=62')}}">
+		<button class="btn btn-secondary">6º</button>
+        </a>
+    </div>
+
+    <x-mensajes/>
+  
     @include('calificacion.form.calificacion-alumno')
 @stop
     

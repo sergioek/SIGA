@@ -120,20 +120,50 @@
                 {{$calificacion->espacio->nombre}}
             </td>
             <td style="text-align: center;">
-                {{$calificacion->nota_1}}
+                @if (empty($calificacion->nota_1))
+                    {{'A'}} 
+                @else
+                    {{$calificacion->nota_1}} 
+                @endif
             </td>
             <td style="text-align: center;">
-                {{$calificacion->nota_2}}
+                @if (empty($calificacion->nota_2))
+                    {{'A'}} 
+                @else
+                    {{$calificacion->nota_2}} 
+                @endif
             </td>
+
             <td style="text-align: center;">
-                {{$calificacion->nota_fin}}
+                @if (empty($calificacion->nota_fin))
+                    {{'A'}} 
+                @else
+                    {{$calificacion->nota_fin}} 
+                @endif
             </td>
+
             <td style="text-align: center;">
+                @if (empty($calificacion->nota_dic))
+                    @if (5.99>$calificacion->nota_2 || 5.99>$calificacion->nota_fin)
+                        {{'A'}}  
+                    @endif
+                @else
                     {{$calificacion->nota_dic}} 
+                @endif
+                    
             </td>
+
             <td style="text-align: center;">
-                {{$calificacion->nota_feb}} 
+                @if (empty($calificacion->nota_feb))
+                    @if (5.99>$calificacion->nota_dic && empty($calificacion->cal_def))
+                        {{'A'}}  
+                    @endif
+                @else
+                   {{$calificacion->nota_feb}}  
+                @endif
+                
             </td>
+
             <td style="text-align: center;">
                 @if (empty($calificacion->cal_def))
                    {{'A'}} 
@@ -209,7 +239,7 @@
         </td>
 
         <td class="td" colspan="3">
-            <strong>Fecha: </strong>{{$alumno2->fnacimiento}}
+            <strong>Fecha: </strong>{{$newDate = date("d-m-Y", strtotime($alumno2->fnacimiento))}}
         </td>
     </tr>
 
@@ -251,37 +281,68 @@
     @foreach ($calificaciones2 as $calificacion)
         
     
+          
     <tr>
-        <td style="padding-left: 5px;">
-            {{$calificacion->espacio->nombre}}
-        </td>
-        <td style="text-align: center;">
-            {{$calificacion->nota_1}}
-        </td>
-        <td style="text-align: center;">
-            {{$calificacion->nota_2}}
-        </td>
-        <td style="text-align: center;">
-            {{$calificacion->nota_fin}}
-        </td>
-        <td style="text-align: center;">
-               {{$calificacion->nota_dic}}  
-        </td>
-        <td style="text-align: center;">
-                {{$calificacion->nota_feb}} 
-        </td>
+            <td style="padding-left: 5px;">
+                {{$calificacion->espacio->nombre}}
+            </td>
+            <td style="text-align: center;">
+                @if (empty($calificacion->nota_1))
+                    {{'A'}} 
+                @else
+                    {{$calificacion->nota_1}} 
+                @endif
+            </td>
+            <td style="text-align: center;">
+                @if (empty($calificacion->nota_2))
+                    {{'A'}} 
+                @else
+                    {{$calificacion->nota_2}} 
+                @endif
+            </td>
 
-        <td style="text-align: center;">
-            @if (empty($calificacion->cal_def))
-                {{'A'}}
-            @else
-                {{$calificacion->cal_def}} 
-            @endif
-        </td>
-        <td>
-            {{$calificacion->observaciones}}
-        </td>
-    </tr>
+            <td style="text-align: center;">
+                @if (empty($calificacion->nota_fin))
+                    {{'A'}} 
+                @else
+                    {{$calificacion->nota_fin}} 
+                @endif
+            </td>
+
+            <td style="text-align: center;">
+                @if (empty($calificacion->nota_dic))
+                    @if (5.99>$calificacion->nota_2 || 5.99>$calificacion->nota_fin)
+                        {{'A'}}  
+                    @endif
+                @else
+                    {{$calificacion->nota_dic}} 
+                @endif
+                    
+            </td>
+
+            <td style="text-align: center;">
+                @if (empty($calificacion->nota_feb))
+                    @if (5.99>$calificacion->nota_dic && empty($calificacion->cal_def))
+                        {{'A'}}  
+                    @endif
+                @else
+                   {{$calificacion->nota_feb}}  
+                @endif
+                
+            </td>
+
+
+            <td style="text-align: center;">
+                @if (empty($calificacion->cal_def))
+                   {{'A'}} 
+                @else
+                   {{$calificacion->cal_def}}  
+                @endif
+            </td>
+            <td>
+                {{$calificacion->observaciones}}
+            </td>
+        </tr>
 
     @endforeach
 

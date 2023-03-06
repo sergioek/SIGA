@@ -111,10 +111,17 @@ class CalificacionController extends Controller
 
       //Si la calificacion no esta vacia
         if(!empty($calificacion)){
-            //Realiza el update
-             $calificacion->update($request->all());
-             //Retorna a la vista
-             return redirect()->back()->with('MsjExito','Se cargo una nota.');
+            ///Try catch por si existen errores en el formato de datos ingresados en notas
+            try {
+                //Realiza el update
+                $calificacion->update($request->all());
+                //Retorna a la vista
+                return redirect()->back()->with('MsjExito','Se cargo una nota.');
+
+            } catch (Exception $e) {
+                return redirect()->back()->with('MsjFalla','Error en el formato de los datos ingresados.');
+            }
+            
         }else{
             return back();
         }

@@ -77,9 +77,11 @@ class InscripcionController extends Controller
             $ciclo=Ciclo::all()->where('estado','ACTIVO')->last();
             Cache::put('ciclo_activo',$ciclo,14400); 
         }
-
+        //Buscando el ultimo legajo
+        $Ultimoalumno= Alumno::all()->last();
+        $legajo= $Ultimoalumno->legajo +1;
         //Retorna a la vista para inscripcion
-        return view('inscripcion.nueva-inscripcion',compact('cursos','ocupaciones','domicilios','parentezcos','ciclo'));
+        return view('inscripcion.nueva-inscripcion',compact('cursos','ocupaciones','domicilios','parentezcos','ciclo','legajo'));
     }
 
     /**

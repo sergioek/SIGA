@@ -5,7 +5,10 @@
 
         <div class="form-group">
             <label for="">Legajo Nº</label>
-            <input type="number" class="form-control" id=""placeholder="Legajo" required name="legajo" value="{{old('legajo',$alumno->legajo)}}" min="1">
+            <!--<input type="number" class="form-control" id=""placeholder="Legajo" required name="legajo" value="{{old('legajo',$alumno->legajo)}}" min="1">-->
+            <select name="legajo" class="form-control">
+              <option value="{{old('legajo',$alumno->legajo)}}">{{$alumno->legajo}}</option>
+            </select>
             @error('legajo')
               <br>
                   <small class="text-danger">*{{$message}}</small>

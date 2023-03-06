@@ -9,6 +9,7 @@
        <option value="2">CONSTANCIA DE TÍTULO EN TRÁMITE</option> <option value="3">CONSTANCIA DE PASE</option>
        <option value="4">ANALÍTICO PARCIAL</option>
        <option value="5">BOLETÍN DE CALIFICACIONES</option>
+       <option value="6">FICHA DE CONDICIÓN ACADÉMICA</option>
     </select>
 
   

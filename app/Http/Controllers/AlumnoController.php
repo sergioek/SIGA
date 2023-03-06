@@ -43,7 +43,10 @@ class AlumnoController extends Controller
             Cache::put('domicilios',$domicilios,14400); 
         }
         
-        return view('alumno.nuevo-alumno',compact('domicilios'));
+        //Buscando el ultimo legajo
+        $Ultimoalumno= Alumno::all()->last();
+        $legajo= $Ultimoalumno->legajo +1;
+        return view('alumno.nuevo-alumno',compact('domicilios','legajo'));
     }
 
     /**

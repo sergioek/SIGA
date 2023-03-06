@@ -8,8 +8,8 @@ td {
 th{
     border:3px solid black; 
     height: 70px;
-    background-color: #04AA6D;
-  color: white;
+    background-color: white;
+  color: black;
   
 }
 
@@ -80,8 +80,7 @@ th, td {
           <tr>
             <th scope="col">Nº</th>
             <th scope="col">Legajo</th>
-            <th scope="col">Apellidos</th>
-            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos y Nombres</th>
             <th scope="col">Sexo</th>
             <th scope="col">DNI</th>
             <th scope="col">Fecha Nac.</th>
@@ -90,10 +89,14 @@ th, td {
             <th scope="col">Discapacidad</th>
             <th scope="col">AUH</th>
             <th scope="col">Obra Social</th>
+            <th scope="col">Repitente</th>
             <th scope="col">Tutor</th>
             <th scope="col">DNI</th>
             <th scope="col">Parentezco</th>
             <th scope="col">Telefono</th>
+            <th scope="col">Observaciones</th>
+            <th scope="col">Baja</th>
+
           </tr>
         </thead>
 
@@ -112,11 +115,7 @@ th, td {
                 </td>
 
                 <td>
-                    {{$alumno->apellidos}}
-                </td>
-
-                <td>
-                    {{$alumno->nombres}}
+                    {{$alumno->apellidos. " " . $alumno->nombres}}
                 </td>
 
                 <td>
@@ -129,7 +128,8 @@ th, td {
                 </td>
 
                 <td>
-                    {{$alumno->fnacimiento}}
+                    {{$newDate = date("d-m-Y", strtotime($alumno->fnacimiento))}}
+
                 </td>
 
                 <td>
@@ -154,6 +154,10 @@ th, td {
                 </td>
 
                 <td>
+                    {{$alumno->repitente}}
+                </td>
+
+                <td>
                     {{$alumno->apellido . " " . $alumno->nombre}}
                 </td>
 
@@ -167,6 +171,14 @@ th, td {
 
                 <td>
                     {{$alumno->telefono}}
+                </td>
+                
+                <td>
+                    {{$alumno->observaciones}}
+                </td>
+
+                <td>
+                    {{$alumno->baja}}
                 </td>
 
             </tr>   

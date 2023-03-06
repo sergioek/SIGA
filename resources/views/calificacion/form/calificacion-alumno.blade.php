@@ -92,7 +92,7 @@
                             </td>
 
                             <td>
-                                <select name="examen" id="" class="form-control" style="width:60px;">
+                                <select name="examen" id="examen" class="form-control" style="width:60px;">
                                     <option value="{{$calificacion->examen}}" selected>{{$calificacion->examen}}</option>
                                     <option value="R">R</option>
                                     <option value="L">L</option>
@@ -105,7 +105,7 @@
                             </td>
 
                             <td>
-                                <input type="date" name="fecha" id="" class="form-control" value="{{old('fecha',$calificacion->fecha)}}" style="width: 160px;">
+                                <input type="date" name="fecha" id="fecha" class="form-control" value="{{old('fecha',$calificacion->fecha)}}" style="width: 160px;">
                                 @error('fecha')
                                 <br>
                                     <small class="text-danger">*{{$message}}</small>
@@ -136,5 +136,6 @@
         <div class="container">
             {{$calificaciones->links()}}
         </div>
+
 </div>
 

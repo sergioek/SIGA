@@ -76,7 +76,7 @@ class ReporteController extends Controller
             if($request->planilla==1){
                 $alumnos =DB::table('inscripcions')
                 ->join('asignar_divisions', 'inscripcions.id', '=', 'asignar_divisions.inscripcion_id')->join('alumnos', 'inscripcions.alumno_id', '=', 'alumnos.id')->orderBy('alumnos.sexo','ASC')
-               ->orderBy('alumnos.apellidos', 'ASC')->where('asignar_divisions.ciclo_id',$request->ciclo)->where('grupo_id',$request->curso)->get();
+               ->orderBy('alumnos.apellidos', 'ASC')->where('asignar_divisions.ciclo_id',$request->ciclo)->where('grupo_id',$request->curso)->where('alumnos.baja','=',null)->get();
 
             }
 
@@ -85,7 +85,7 @@ class ReporteController extends Controller
              
                 $alumnos =DB::table('inscripcions')
                 ->join('asignar_divisions', 'inscripcions.id', '=', 'asignar_divisions.inscripcion_id')->join('alumnos', 'inscripcions.alumno_id', '=', 'alumnos.id')->where('alumnos.sexo','!=','M')
-               ->orderBy('alumnos.apellidos', 'ASC')->where('asignar_divisions.ciclo_id',$request->ciclo)->where('grupo_id',$request->curso)->get();
+               ->orderBy('alumnos.apellidos', 'ASC')->where('asignar_divisions.ciclo_id',$request->ciclo)->where('grupo_id',$request->curso)->where('alumnos.baja','=',null)->get();
             }
 
 
@@ -94,7 +94,7 @@ class ReporteController extends Controller
              
                 $alumnos =DB::table('inscripcions')
                 ->join('asignar_divisions', 'inscripcions.id', '=', 'asignar_divisions.inscripcion_id')->join('alumnos', 'inscripcions.alumno_id', '=', 'alumnos.id')->where('alumnos.sexo','M')
-               ->orderBy('alumnos.apellidos', 'ASC')->where('asignar_divisions.ciclo_id',$request->ciclo)->where('grupo_id',$request->curso)->get();
+               ->orderBy('alumnos.apellidos', 'ASC')->where('asignar_divisions.ciclo_id',$request->ciclo)->where('grupo_id',$request->curso)->where('alumnos.baja','=',null)->get();
             }
 
             //Descargando la planilla en PDF
@@ -194,7 +194,14 @@ class ReporteController extends Controller
 
                 $pdf= PDF::loadView('reporte.form-alumno.libreta',compact('ciclo','curso','alumno','fecha','inscripcion','espacios','establecimiento'))->setPaper('A4', 'landscape')->setWarnings(false)->save('myfile.pdf');
                 return $pdf->download('libreta.pdf');
-            }          
+            }  
+            
+            //Libreta de calificaciones
+            if($request->reporte==6){
+
+                $pdf= PDF::loadView('reporte.form-alumno.condicion-academica',compact('alumno'))->setPaper('A4', 'portrait')->setWarnings(false)->save('myfile.pdf');
+                return $pdf->download($alumno->apellidos . ' ' . $alumno->nombres.'.pdf');
+            }      
 
     }
 
@@ -281,7 +288,7 @@ class ReporteController extends Controller
             //Generando el pdf
             $pdf= PDF::loadView('reporte.form-libro.libro',compact('establecimiento','ciclo','curso','alumno','matricula','calificaciones','observaciones','promedio','materias','alumno2','matricula2','calificaciones2','observaciones2','promedio2','folio'))->setPaper('B4', 'portrait')->setWarnings(false)->save('myfile.pdf');
 
-            return $pdf->download('librocalificaciones.pdf');
+            return $pdf->download($folio.'.pdf');
 
         } catch (Exception $e) {
             //Si algo falla, muestra error.

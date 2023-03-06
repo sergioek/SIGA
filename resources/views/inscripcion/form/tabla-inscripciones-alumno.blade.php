@@ -1,6 +1,10 @@
+<?php
+   use App\Models\AsignarDivision;
+    
+?>
+
+
 <div>
-
-
     <a href="{{route('inscripcion.alumno')}}">
         <button class="btn btn-secondary offset-lg-10" title="Volver atrás"><i class="fas fa-undo-alt"></i> Volver</button>
     </a>
@@ -20,6 +24,7 @@
           <tr>
             <th scope="col">Nº</th>
             <th scope="col">Curso</th>
+            <th scope="col">División</th>
             <th scope="col">Ciclo</th>
             <th scope="col">Legajo</th>
             <th scope="col">Alumno</th>
@@ -50,9 +55,19 @@
                     {{$inscripto->id}}
                 </td>
 
-
                 <td >
                     {{$inscripto->curso->curso}}
+                </td>
+
+                <td>
+                    @if ($asignacion=AsignarDivision::find($inscripto->id))
+                        {{$asignacion=AsignarDivision::find($inscripto->id)->division->division->division}}
+
+                    @else
+                        "Sin asig."
+                    @endif
+
+                    
                 </td>
 
                 <td >

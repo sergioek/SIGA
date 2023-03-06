@@ -18,4 +18,5 @@
 
 @section('js')
     <script> console.log('Hi!'); </script>
+    <script type="text/javascript" src="{{ URL::asset('js/librocalificaciones.js') }}"></script>
 @stop
