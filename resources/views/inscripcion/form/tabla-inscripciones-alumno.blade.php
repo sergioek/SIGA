@@ -60,14 +60,12 @@
                 </td>
 
                 <td>
-                    @if ($asignacion=AsignarDivision::find($inscripto->id))
-                        {{$asignacion=AsignarDivision::find($inscripto->id)->division->division->division}}
-
+                    @if ($asignacion=AsignarDivision::find($inscripto->id)->division)
+                    {{$asignacion=AsignarDivision::find($inscripto->id)->division->division->division}}
                     @else
                         "Sin asig."
                     @endif
-
-                    
+      
                 </td>
 
                 <td >
