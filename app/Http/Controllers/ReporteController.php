@@ -118,6 +118,8 @@ class ReporteController extends Controller
         //variables de const. pase
         $materias=$request->materias;
         $idioma=$request->idioma;
+        //vARIABLES TIT TRAMITE
+        $espacios=$request->espacios;
 
         
         //Buscando datos del establecimiento
@@ -135,8 +137,9 @@ class ReporteController extends Controller
             $inscripcion=Inscripcion::all()->where('alumno_id',$alumno->id)->last();
             //Determinando la division actual
             $curso=AsignarDivision::all()->where('inscripcion_id',$inscripcion->id)->last();
-            //Determinando el ciclo
-            $ciclo=$inscripcion->ciclo;
+            //Determinando el ultimo del alumnociclo
+            //$ciclo=$inscripcion->ciclo;
+            $ciclo=Ciclo::all()->last();
 
         } catch (Exception $e) {
             //Si los datos antes ingresados arrojan error en la busqueda, se muestra un msj
@@ -160,7 +163,7 @@ class ReporteController extends Controller
             if($request->reporte==2){
 
                 if($curso->division->curso->curso=='6º'){
-                    $pdf= PDF::loadView('reporte.form-alumno.titulo-tramite',compact('ciclo','curso','alumno','fecha','establecimiento'))->setPaper('A4', 'portrait')->setWarnings(false)->save('myfile.pdf');
+                    $pdf= PDF::loadView('reporte.form-alumno.titulo-tramite',compact('ciclo','curso','alumno','fecha','establecimiento','espacios'))->setPaper('A4', 'portrait')->setWarnings(false)->save('myfile.pdf');
                      return $pdf->download('titulo-tramite.pdf');
                 }else{
                     return redirect()->route('reporte.alumno')->with('MsjFalla','No se puede emitir constancia porque el alumno no cursó 6º año.');
