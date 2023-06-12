@@ -192,7 +192,12 @@
             <td></td>
             <td></td>
             <td></td>
-            <td colspan="4" rowspan="2" style="text-align: center; border: 2px solid black;">{{round($promedio/$materias,2)}}</td>
+            <td colspan="4" rowspan="2" style="text-align: center; border: 2px solid black;">
+            
+                @if ($mostrarPromedio)
+                    {{round($promedio/$materias,2)}}
+                @endif
+            </td>
         </tr>
 
 
@@ -360,7 +365,11 @@
         <td></td>
         <td></td>
         <td></td>
-        <td colspan="4" rowspan="2" style="text-align: center; border: 2px solid black;">{{round($promedio2/$materias,2)}}</td>
+        <td colspan="4" rowspan="2" style="text-align: center; border: 2px solid black;">
+            @if ($mostrarPromedio2)
+                {{round($promedio2/$materias,2)}}
+            @endif
+        </td>
     </tr>
 
 

@@ -61,7 +61,7 @@ class ReporteController extends Controller
         if($request->reporte==1){
             $alumnos =DB::table('inscripcions')
             ->join('asignar_divisions', 'inscripcions.id', '=', 'asignar_divisions.inscripcion_id')->join('alumnos', 'inscripcions.alumno_id', '=', 'alumnos.id')->join('tutors','inscripcions.tutor_id','=','tutors.id')->join('parentezcos','inscripcions.parentezco_id','=','parentezcos.id')->orderBy('alumnos.sexo','ASC')
-           ->orderBy('alumnos.apellidos', 'ASC')->where('asignar_divisions.ciclo_id',$request->ciclo)->where('grupo_id',$request->curso)->get();
+           ->orderBy('alumnos.apellidos', 'ASC')->where('asignar_divisions.ciclo_id',$request->ciclo)->where('grupo_id',$request->curso)->where('baja',null)->get();
     
           //Generando PDF
            $pdf= PDF::loadView('reporte.form.listadodatos',compact('alumnos','ciclo','curso','establecimiento'))->setPaper('A3', 'landscape')->setWarnings(false)->save('myfile.pdf');
@@ -267,12 +267,24 @@ class ReporteController extends Controller
             $matricula= AsignarDivision::where('grupo_id',$curso->id)->where('inscripcion_id',$inscripcion->id)->first();
             //buscando las calificaciones alum1
             $calificaciones=Clasificaciones::all()->where('alumno_id',$alumno->id)->where('curso_id',$curso->curso->id)->where('carrera_id',$curso->carrera->id);
+            $mostrarPromedio=true;
+            
+            foreach ($calificaciones as $calificacion) {
+                if($calificacion->cal_def<6){
+                    $mostrarPromedio=false;
+                }
+
+            }
+
+
+
             //sacando el promedio del alumno 1
             $promedio=Clasificaciones::all()->where('alumno_id',$alumno->id)->where('curso_id',$curso->curso->id)->where('carrera_id',$curso->carrera->id)->sum('cal_def');
             //sacando la cantidad de materias
             $materias=Clasificaciones::all()->where('alumno_id',$alumno->id)->where('curso_id',$curso->curso->id)->where('carrera_id',$curso->carrera->id)->count();
+            
 
-            //si el usuario eligiio el formato 2, es decir dos alumnos por folio, se realiza la busqueda del alumno 2
+            //si el usuario eligio el formato 2, es decir dos alumnos por folio, se realiza la busqueda del alumno 2
             if($request->formato=='2'){
                 //buscando alumno 2 por dni
                 $alumno2=Alumno::where('dni',$request->dni2)->first();
@@ -284,12 +296,19 @@ class ReporteController extends Controller
                 
                 //buscando las calificaciones 
                 $calificaciones2=Clasificaciones::all()->where('alumno_id',$alumno2->id)->where('curso_id',$curso->curso->id)->where('carrera_id',$curso->carrera->id);
+                $mostrarPromedio2=true;
                 //sacando el promedio 
                 $promedio2=Clasificaciones::all()->where('alumno_id',$alumno2->id)->where('curso_id',$curso->curso->id)->where('carrera_id',$curso->carrera->id)->sum('cal_def');
 
+                foreach ($calificaciones2 as $calificacion) {
+                    if($calificacion->cal_def<6){
+                        $mostrarPromedio2=false;
+                    }
+    
+                }
             }
             //Generando el pdf
-            $pdf= PDF::loadView('reporte.form-libro.libro',compact('establecimiento','ciclo','curso','alumno','matricula','calificaciones','observaciones','promedio','materias','alumno2','matricula2','calificaciones2','observaciones2','promedio2','folio'))->setPaper('B4', 'portrait')->setWarnings(false)->save('myfile.pdf');
+            $pdf= PDF::loadView('reporte.form-libro.libro',compact('establecimiento','ciclo','curso','alumno','matricula','calificaciones','observaciones','mostrarPromedio','promedio','materias','alumno2','matricula2','calificaciones2','observaciones2','mostrarPromedio2','promedio2','folio'))->setPaper('B4', 'portrait')->setWarnings(false)->save('myfile.pdf');
 
             return $pdf->download($folio.'.pdf');
 
