@@ -255,6 +255,7 @@ class ReporteController extends Controller
         $matricula2="";
         $calificaciones2="";
         $promedio2="";
+        $mostrarPromedio2=true;
         $observaciones=$request->observaciones;
         $observaciones2=$request->observaciones2;
 

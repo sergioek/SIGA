@@ -373,6 +373,12 @@ return [
                     'icon'=>'fas fa-plus',
                     ],
 
+                [
+                    'text'=>'Ver cumpleaños del día',
+                    'route'=>'alumno.cumple',
+                    'icon'=>'fas fa-calendar',
+                ],
+
  
                 ],
                 

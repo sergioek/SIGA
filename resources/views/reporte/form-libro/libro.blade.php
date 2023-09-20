@@ -202,7 +202,7 @@
 
 
         <tr>
-            <td><strong>Condcuta:</strong></td>
+            <td><strong>Conducta:</strong></td>
             <td></td>
             <td></td>
             <td></td>
@@ -374,7 +374,7 @@
 
 
     <tr>
-        <td><strong>Condcuta:</strong></td>
+        <td><strong>Conducta:</strong></td>
         <td></td>
         <td></td>
         <td></td>

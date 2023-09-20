@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use PDF;
 use Exception;
 use Dompdf\Dompdf;
@@ -250,6 +249,11 @@ class AlumnoController extends Controller
         }else{
             return back();
         }
+    }
+
+    public function cumple(){
+
+        return view('alumno.cumpleanos.cumple');
     }
 
 }

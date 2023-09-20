@@ -68,6 +68,11 @@ Route::put('alta/{alumno}',[AlumnoController::class,'up'])->name('alumno.up')->m
 
 Route::get('imprimir/{alumno}',[AlumnoController::class,'print'])->name('alumno.print')->middleware(['auth:sanctum']);
 
+//Cumpleaños de alumnos
+Route::get('alumnos/cumple',[AlumnoController::class,'cumple'])->name('alumno.cumple')->middleware(['auth:sanctum']);
+
+
+
 //Ruta a tutores
 Route::resource('tutor', TutorController::class)->middleware(['auth:sanctum']);
 
@@ -114,6 +119,10 @@ Route::post('reporte/alumno/pdf',[ReporteController::class,'const'])->name('repo
 
 
 Route::post('reporte/libro/pdf',[ReporteController::class,'clasificaciones'])->name('reporte.clasificaciones')->middleware(['auth:sanctum']);
+
+
+
+
 
 
 //Soporte
