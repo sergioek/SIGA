@@ -69,7 +69,9 @@ class AsignarDivision extends Component
         }
        
         //retornando la vista
-        return view('livewire.asignar-division',compact($this->cursos,'asignaciones',$this->divisiones));
+        $cursos=$this->cursos;
+        $divisiones=$this->divisiones;
+        return view('livewire.asignar-division',compact('cursos','asignaciones','divisiones'));
     }
 
 

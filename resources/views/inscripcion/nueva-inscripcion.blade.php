@@ -19,4 +19,6 @@
 @section('js')
     <script> console.log('Hi!'); </script>
     <script type="text/javascript" src="{{ URL::asset('js/discapacidad.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/inscripcion.js') }}"></script>
+
 @stop

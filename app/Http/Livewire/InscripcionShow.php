@@ -45,9 +45,10 @@ class InscripcionShow extends Component
     {   
        //Buscando inscripciones de acuerdo al Nº de inscripcion
        $inscriptos=Inscripcion::where('id','like','%'.$this->search.'%')->where('ciclo_id',$this->filtro)->orderBy('curso_id','ASC')->Paginate(10);
-
+        //Pasando ciclos
+        $ciclos= $this->ciclos;
        
         //retorna a la vista
-        return view('livewire.inscripcion-show',compact('inscriptos',$this->ciclos));
+        return view('livewire.inscripcion-show',compact('inscriptos','ciclos'));
     }
 }

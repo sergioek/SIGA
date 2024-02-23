@@ -39,18 +39,28 @@ class InscripcionEdit extends Component
             $tutores=Tutor::all(); 
             Cache::put('tutores',$tutores,14400); 
         }
+
         //asignando valores a las propiedades
         $this->inscripcion=$this->inscripcionID;
         $this->cursos=$cursos=Curso::all();
         $this->tutor=$tutores;
         $this->parentezcos=$parentezcos;
         $this->ocupaciones=$ocupaciones;
+      
     }
 
     public function render()
     {   //buscando el tutor de acuerdo al dni introducido por el usuario en la vista livewire
         $this->tutores=$this->tutor->where('tutordni',$this->tutordni);
+        $tutoresSelect=$this->tutores;
+      
         //retorna  a la vista
-        return view('livewire.inscripcion-edit',compact($this->parentezcos,$this->ocupaciones,$this->cursos,$this->tutores,$this->inscripcion));
+        return view('livewire.inscripcion-edit', [
+            'parentezcos' => $this->parentezcos,
+            'ocupaciones' => $this->ocupaciones,
+            'cursos' => $this->cursos,
+            'tutores' => $tutoresSelect,
+            'inscripcion' => $this->inscripcion,
+        ]);
     }
 }

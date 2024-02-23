@@ -84,8 +84,12 @@ class Reinscripcion extends Component
         $alumnos=$this->alum->where('dni',$this->dni)->where('baja',null);
         //busca tutotres
         $tutores=$this->tutor->where('tutordni',$this->tutordni);
+        $ciclos= $this->ciclos;
+        $cursos=$this->cursos;
+        $parentezcos=$this->parentezcos;
+        $ocupaciones=$this->ocupaciones;
         
         //Retorna a la vista 
-        return view('livewire.reinscripcion',compact($this->ciclos,$this->cursos,$this->parentezcos,$this->ocupaciones,'alumnos','tutores'));
+       return view('livewire.reinscripcion',compact('ciclos','cursos','parentezcos','ocupaciones','alumnos','tutores'));
     }
 }

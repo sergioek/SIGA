@@ -22,7 +22,7 @@
 
         <div class="form-group">
           <label for="">Apellidos</label>
-          <input type="text" class="form-control" id=""placeholder="Apellidos en mayúsculas" required name="apellidos" pattern="[A-Z-Ñ-Á-É-Ó-Í-Ú-Ü-Ö ]{1,50}" value="{{old('apellidos')}}">
+          <input type="text" class="form-control" id="apellidos"placeholder="Apellidos en mayúsculas" required name="apellidos"  value="{{old('apellidos')}}"  >
           @error('apellidos')
             <br>
                 <small class="text-danger">*{{$message}}</small>
@@ -32,7 +32,7 @@
 
         <div class="form-group">
             <label for="">Nombres</label>
-            <input type="text" class="form-control" id=""placeholder="Nombres" required name="nombres" value="{{old('nombres')}}">
+            <input type="text" class="form-control" id="nombres" placeholder="Nombres" required name="nombres" value="{{old('nombres')}}">
             @error('nombres')
               <br>
                   <small class="text-danger">*{{$message}}</small>
@@ -106,7 +106,7 @@
 
           <div class="form-group">
             <label for="">Lugar de Nacimiento</label>
-            <input type="text" class="form-control" id=""placeholder="Lugar de Nacimiento" required name="lnacimiento" value="{{old('lnacimiento')}}">
+            <input type="text" class="form-control" id="nacimiento"placeholder="Lugar de Nacimiento" required name="lnacimiento" value="{{old('lnacimiento')}}">
             @error('lnacimiento')
               <br>
                   <small class="text-danger">*{{$message}}</small>
@@ -221,7 +221,7 @@
 
           <div class="form-group">
             <label for="">Apellidos</label>
-            <input type="text" class="form-control" id=""placeholder="Apellidos del tutor en mayúscula" required name="apellido" pattern="[A-Z-Ñ-Á-É-Ó-Í-Ú-Ü-Ö ]{1,50}" value="{{old('apellido')}}">
+            <input type="text" class="form-control" id="apellidosTutor"placeholder="Apellidos del tutor en mayúscula" required name="apellido" pattern="[A-Z-Ñ-Á-É-Ó-Í-Ú-Ü-Ö ]{1,50}" value="{{old('apellido')}}">
             @error('apellido')
               <br>
                   <small class="text-danger">*{{$message}}</small>
@@ -231,7 +231,7 @@
   
           <div class="form-group">
               <label for="">Nombres</label>
-              <input type="text" class="form-control" id=""placeholder="Nombres del tutor" required name="nombre" value="{{old('nombre')}}" >
+              <input type="text" class="form-control" id="nombresTutor" placeholder="Nombres del tutor" required name="nombre" value="{{old('nombre')}}" >
               @error('nombre')
                 <br>
                     <small class="text-danger">*{{$message}}</small>
