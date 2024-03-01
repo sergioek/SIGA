@@ -57,6 +57,6 @@ class AsignarShow extends Component
        $asignaciones=AsignarDivision::where('grupo_id',$this->search)->where('ciclo_id',$this->año)->where('grupo_id','!=',null)->Paginate(10);
    
         //retornando la vista
-        return view('livewire.asignar-show',compact($this->cursos,$this->ciclos,'asignaciones'));
+        return view('livewire.asignar-show',["cursos"=>$this->cursos,"ciclos"=>$this->ciclos,"asignaciones"=>$asignaciones]);
     }
 }
