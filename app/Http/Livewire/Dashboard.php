@@ -54,9 +54,9 @@ class Dashboard extends Component
                 //buscando la seccion 
                 $seccion=CursoDivision::where('id',$this->curso)->get();
                 //buscando la cant de varones
-                $varones=DB::table('asignar_divisions')->join('inscripcions','asignar_divisions.inscripcion_id','=','inscripcions.id')->join('alumnos','inscripcions.alumno_id','=','alumnos.id')->where('asignar_divisions.ciclo_id',$this->año)->where('asignar_divisions.grupo_id',$this->curso)->where('alumnos.sexo','M')->count();
+                $varones=DB::table('asignar_divisions')->join('inscripcions','asignar_divisions.inscripcion_id','=','inscripcions.id')->join('alumnos','inscripcions.alumno_id','=','alumnos.id')->where('asignar_divisions.ciclo_id',$this->año)->where('asignar_divisions.grupo_id',$this->curso)->where('alumnos.sexo','M')->where('alumnos.baja',null)->count();
                 //buscando la cant de mujeres del curso
-                $mujeres=DB::table('asignar_divisions')->join('inscripcions','asignar_divisions.inscripcion_id','=','inscripcions.id')->join('alumnos','inscripcions.alumno_id','=','alumnos.id')->where('asignar_divisions.ciclo_id',$this->año)->where('asignar_divisions.grupo_id',$this->curso)->where('alumnos.sexo','!=','M')->count();
+                $mujeres=DB::table('asignar_divisions')->join('inscripcions','asignar_divisions.inscripcion_id','=','inscripcions.id')->join('alumnos','inscripcions.alumno_id','=','alumnos.id')->where('asignar_divisions.ciclo_id',$this->año)->where('asignar_divisions.grupo_id',$this->curso)->where('alumnos.sexo','!=','M')->where('alumnos.baja',null)->count();
                 //Sumando valores
                 $subtotal=$varones+$mujeres;
             

@@ -80,22 +80,21 @@ th, td {
           <tr>
             <th scope="col">Nº</th>
             <th scope="col">Legajo</th>
-            <th scope="col">Apellidos</th>
-            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos y Nombres</th>
             <th scope="col">Sexo</th>
-            <th scope="col">CUIL</th>
+            <th scope="col">DNI</th>
             <th scope="col">Fecha Nac.</th>
-            {{-- <th scope="col">L. Nacimiento</th>
+            <th scope="col">L. Nacimiento</th>
             <th scope="col">Direccion</th>
             <th scope="col">Discapacidad</th>
             <th scope="col">AUH</th>
             <th scope="col">Obra Social</th>
             <th scope="col">Tutor</th>
             <th scope="col">CUIL</th>
-            {{-- <th scope="col">Parentezco</th>
+            <th scope="col">Parentezco</th>
             <th scope="col">Telefono</th>
             <th scope="col">Observaciones</th>
-            <th scope="col">Baja</th> --}}
+            <th scope="col">Baja</th> 
             <th scope="col">Repitente</th>
           </tr>
         </thead>
@@ -115,19 +114,16 @@ th, td {
                 </td>
 
                 <td>
-                    {{$alumno->apellidos}}
+                    {{$alumno->apellidos . " " . $alumno->nombres}}
                 </td>
 
-                <td>
-                    {{$alumno->nombres}}
-                </td>
-
+            
                 <td>
                     {{$alumno->sexo}}
                 </td>
 
                 <td>
-                    {{$alumno->cuil}}
+                    {{$alumno->dni}}
 
                 </td>
 
@@ -136,7 +132,7 @@ th, td {
 
                 </td>
 
-                {{-- <td>
+                <td>
                     {{$alumno->lnacimiento}}
                 </td>
 
@@ -158,10 +154,6 @@ th, td {
                 </td>
 
                 <td>
-                    {{$alumno->repitente}}
-                </td> --}}
-
-                <td>
                     {{$alumno->apellido . " " . $alumno->nombre}}
                 </td>
 
@@ -169,7 +161,7 @@ th, td {
                     {{$alumno->tutorcuil}}
                 </td>
 
-                {{-- <td>
+                <td>
                     {{$alumno->parentezco}}
                 </td>
 
@@ -183,7 +175,7 @@ th, td {
 
                 <td>
                     {{$alumno->baja}}
-                </td> --}}
+                </td>
 
                 <td>
                     {{$alumno->repitente}}
