@@ -86,7 +86,7 @@ th, td {
             <th scope="col">Fecha Nac.</th>
             <th scope="col">L. Nacimiento</th>
             <th scope="col">Direccion</th>
-            <th scope="col">Discapacidad</th>
+            <th scope="col">Ciudad</th>
             <th scope="col">AUH</th>
             <th scope="col">Obra Social</th>
             <th scope="col">Tutor</th>
@@ -142,7 +142,17 @@ th, td {
                 </td>
 
                 <td>
-                    {{$alumno->discapacidad}}
+                    @if ($alumno->domicilio_id==1)
+                        Fernandez
+                    @endif
+
+                    @if ($alumno->domicilio_id==2)
+                        Forres
+                    @endif
+
+                    @if ($alumno->domicilio_id==3)
+                        Beltran
+                    @endif
                 </td>
 
                 <td>
