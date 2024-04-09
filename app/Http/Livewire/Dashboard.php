@@ -64,12 +64,12 @@ class Dashboard extends Component
 
            //El total siempre se mostrara en pantalla
             //Total varones inscriptos
-            $total_varones=DB::table('asignar_divisions')->join('inscripcions','asignar_divisions.inscripcion_id','=','inscripcions.id')->join('alumnos','inscripcions.alumno_id','=','alumnos.id')->where('asignar_divisions.ciclo_id',$this->año)->where('alumnos.sexo','M')->count();
+            $total_varones=DB::table('asignar_divisions')->join('inscripcions','asignar_divisions.inscripcion_id','=','inscripcions.id')->join('alumnos','inscripcions.alumno_id','=','alumnos.id')->where('asignar_divisions.ciclo_id',$this->año)->where('alumnos.sexo','M')->where('alumnos.baja',null)->count();
             //total mujeres inscriptas
-            $total_mujeres=DB::table('asignar_divisions')->join('inscripcions','asignar_divisions.inscripcion_id','=','inscripcions.id')->join('alumnos','inscripcions.alumno_id','=','alumnos.id')->where('asignar_divisions.ciclo_id',$this->año)->where('alumnos.sexo','!=','M')->count();
+            $total_mujeres=DB::table('asignar_divisions')->join('inscripcions','asignar_divisions.inscripcion_id','=','inscripcions.id')->join('alumnos','inscripcions.alumno_id','=','alumnos.id')->where('asignar_divisions.ciclo_id',$this->año)->where('alumnos.sexo','!=','M')->where('alumnos.baja',null)->count();
 
             //contando la cantidad de inscriptos .. (el sistema no determina si se asigno seccion)
-            $total=AsignarDivision::where('ciclo_id',$this->año)->count();
+            $total=$total_mujeres+$total_varones;
         //retorna  a la vista
         return view('livewire.dashboard',compact('ciclos','cursos','seccion','varones','mujeres','subtotal','total_varones','total_mujeres','total'));
     }
