@@ -95,7 +95,7 @@ th, td {
             <th scope="col">Telefono</th>
             <th scope="col">Observaciones</th>
             <th scope="col">Baja</th> 
-            <th scope="col">Repitente</th>
+            <th scope="col">Repitente</th> 
           </tr>
         </thead>
 
@@ -127,6 +127,8 @@ th, td {
 
                 </td>
 
+           
+
                 <td>
                     {{$newDate = date("d-m-Y", strtotime($alumno->fnacimiento))}}
 
@@ -152,7 +154,7 @@ th, td {
 
                     @if ($alumno->domicilio_id==3)
                         Beltran
-                    @endif
+                    @endif 
                 </td>
 
                 <td>
@@ -189,7 +191,7 @@ th, td {
 
                 <td>
                     {{$alumno->repitente}}
-                </td>
+                </td> 
             </tr>   
             
              @empty
