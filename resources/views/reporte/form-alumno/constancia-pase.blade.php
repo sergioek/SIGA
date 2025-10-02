@@ -22,14 +22,9 @@
     
     </div>
     
-    <x-firmas/>
+    {{-- <x-firmas/> --}}
 
     <div style="padding-top: 5px;padding-left:40px; ">
-        <footer>
-            
-            <p><strong>Para comunicarnos:</strong>{{$establecimiento->correo}} - <strong>Teléfono:</strong>
-                {{$establecimiento->telefono}}
-            </p>
-        </footer>
+   
     </div>
     

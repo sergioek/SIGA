@@ -7,7 +7,7 @@ function ponderacion(){
     let nota_2 = document.getElementById('nota_2').value; 
 
 
-    let calculo= (nota_1 * 40 / 100)+( nota_2 * 60 / 100);
+    let calculo= (nota_1 * 50 / 100)+( nota_2 * 50 / 100);
 
     let redondeo = Math.round(calculo);
 
@@ -30,7 +30,7 @@ function ponderacion(){
         document.getElementById('nota_dic').value=null;
 
         document.getElementById('nota_feb').value=null;
-        document.getElementById('fecha').value='2023-12-15';
+        document.getElementById('fecha').value='2024-12-13';
         document.getElementById('examen').value='R';
        
     }else{
@@ -40,7 +40,7 @@ function ponderacion(){
 
         document.getElementById('cal_def').value=null;
 
-        document.getElementById('fecha').value='2023-12-22';
+        document.getElementById('fecha').value='2024-12-13';
         document.getElementById('examen').value='R';
     }
 
@@ -59,14 +59,14 @@ function diciembre(){
         document.getElementById('cal_def').value=nota_dic;
 
         document.getElementById('nota_feb').readOnly=true;
-        document.getElementById('fecha').value='2023-12-22';
+        document.getElementById('fecha').value='2024-12-13';
         document.getElementById('examen').value='R';
     }else{
         document.getElementById('nota_feb').readOnly=false;
 
         document.getElementById('cal_def').value=null;
 
-        document.getElementById('fecha').value='2024-02-22';
+        document.getElementById('fecha').value='2025-02-28';
         document.getElementById('examen').value='R';
 
     }
@@ -81,11 +81,11 @@ function febrero(){
 
     if(nota_feb>=6){
          document.getElementById('cal_def').value=nota_feb;
-         document.getElementById('fecha').value='2024-02-22';
+         document.getElementById('fecha').value='2025-02-28';
         document.getElementById('examen').value='R';
     }else{
         document.getElementById('cal_def').value=nota_feb;
-        document.getElementById('fecha').value='2024-02-22';
+        document.getElementById('fecha').value='2025-02-28';
         document.getElementById('examen').value='R';
     }
 
